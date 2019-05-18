@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -27,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
+
     }
 
     /**
@@ -38,7 +40,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $userRole = $request->izbor;
+
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->city = $request->city;
+        $user->address = $request->address;
+        $user->number = $request->number;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+        $user->roles()->attach($userRole);
+
+        return redirect('admin/users');
     }
 
     /**
@@ -93,7 +109,7 @@ class UserController extends Controller
         $user->email=$email;
         $user->save();
 
-        return view('admin.users.index');
+        return view('admin.users.index')->with('users',User::all());
 
 
 
