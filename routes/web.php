@@ -23,8 +23,17 @@ Route::get('/admin', function (){
     return "ti si admir";
 })->middleware(['auth','auth.admin']);
 
+Route::get('/worker', function (){
+    return "ti si worker";
+})->middleware(['auth','auth.worker']);
+
 
 
 Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->name('admin.')->group(function (){
     Route::resource('/users','UserController');
+});
+
+
+Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])->name('worker.')->group(function (){
+    Route::resource('/shipments', 'ShipmentController');
 });
