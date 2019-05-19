@@ -8,6 +8,7 @@ use App\User;
 use App\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -124,6 +125,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
+        DB::table('role_user')->where('user_id',$id)->delete();
         return redirect()->route('admin.users.index')->with('success','User has been deleted');
     }
 }
