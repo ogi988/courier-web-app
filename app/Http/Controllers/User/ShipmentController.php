@@ -40,7 +40,30 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $shipment = new Shipment;
+        $user = User::where('id', $request->id)->first();
+
+        $shipment->shipment_number = $request->shipment_number;
+        $shipment->status = 1;
+        $shipment->method_payment = $request->method_payment;
+        $shipment->mass = $request->mass;
+        $shipment->category = $request->category;
+        $shipment->who_pay = $request->who_pay;
+        $shipment->name = $request->name;
+        $shipment->surname = $request->surname;
+        $shipment->address = $request->address;
+        $shipment->email =$request->email;
+        $shipment->city = $request->city;
+        $shipment->number = $request>number;
+        $shipment->shipment_price = $request->shipment_price;
+        $shipment->transport_price = $request>transport_price;
+        $shipment->type = $s->type;
+        $shipment->save();
+
+        $shipment->save();
+        $shipment->users()->attach($user);
+
+        return redirect('admin/users');
     }
 
     /**

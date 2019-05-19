@@ -54,13 +54,14 @@
 
 
                                 <th>
-                                <form method='POST' action = "{{route('worker.shipments.store')}}">
-                                    {{method_field('HEAD')}}
+                                <form method='POST' action = "{{route('worker.shipments.zaduzi')}}">
+                                    @csrf
+                                    <input type="text" name="idid" value="{{ $shipment->id }}" hidden>
                                     <button type="submit" class="btn btn-primary btn-sm">Zaaaduzi!</button>
                                     
-                                </th>
+
                                 </form>
-                                
+                                </th>
                             </tr>
                         @endforeach
                         </tbody>

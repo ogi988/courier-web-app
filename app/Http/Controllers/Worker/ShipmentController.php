@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Worker;
 
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\User;
 use App\Shipment;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -48,7 +50,9 @@ class ShipmentController extends Controller
         // $shipment = Shipment::find($id);
         // $user->shipments()->sync($request->shipments);
 
-        dd($request);
+        $id = $request->p;
+        $s = Shipment::find($id);
+        dd($s);
         // $shipment = new Shipment;
         
         // $shipment_number = $request->shipment_number;
@@ -82,12 +86,13 @@ class ShipmentController extends Controller
         // $shipment->transport_price = $transport_price;
         // $shipment->type = $type;
 
-        // $shipment->save();
-        // dd($shipment);
+        //$shipment->save();
 
 
-        // return view('worker.index')->with('shipments',Shipment::all());
+
+        //return view('worker.index')->with('shipments',Shipment::all());
     }
+
 
     /**
      * Display the specified resource.
@@ -122,7 +127,10 @@ class ShipmentController extends Controller
      */
     public function update(Request $request, Shipment $shipment)
     {
-        
+        $id = $request->p;
+        $s = Shipment::find($id);
+
+        dd($s);
     }
 
     /**
@@ -134,6 +142,29 @@ class ShipmentController extends Controller
     public function destroy(Shipment $shipment)
     {
         //
+    }
+    public function zaduzi(Request $request)
+    {
+        $id = $request->idid;
+        $s = Shipment::find($id);
+        $shipment = new Shipment;
+        $shipment->shipment_number = $s->shipment_number;
+        $shipment->status = 1;
+        $shipment->method_payment = $s->method_payment;
+        $shipment->mass = $s->mass;
+        $shipment->category = $s->category;
+        $shipment->who_pay = $s->who_pay;
+        $shipment->name = $s->name;
+        $shipment->surname = $s->surname;
+        $shipment->address = $s->address;
+        $shipment->email = $s->email;
+        $shipment->city = $s->city;
+        $shipment->number = $s->number;
+        $shipment->shipment_price = $s->shipment_price;
+        $shipment->transport_price = $s->transport_price;
+        $shipment->type = $s->type;
+        $shipment->save();
+        return redirect('worker/shipments');
     }
 
     
