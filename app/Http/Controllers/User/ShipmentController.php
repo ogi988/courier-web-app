@@ -1,9 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Shipment;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\User;
+use App\Shipment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class ShipmentController extends Controller
 {
@@ -14,7 +19,7 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.shipments.index')->with('shipments',Shipment::all());
     }
 
     /**
@@ -24,7 +29,7 @@ class ShipmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.shipments.create');
     }
 
     /**
