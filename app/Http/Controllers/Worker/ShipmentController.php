@@ -147,6 +147,12 @@ class ShipmentController extends Controller
     {
         $id = $request->idid;
         $s = Shipment::find($id);
+
+        $userid = Auth::id();
+        $user = User::where('id', $userid)->first();
+
+
+
         $shipment = new Shipment;
         $shipment->shipment_number = $s->shipment_number;
         $shipment->status = 1;
@@ -164,6 +170,7 @@ class ShipmentController extends Controller
         $shipment->transport_price = $s->transport_price;
         $shipment->type = $s->type;
         $shipment->save();
+        $shipment->users()->attach($user);
         return redirect('worker/shipments');
     }
 

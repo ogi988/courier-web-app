@@ -35,6 +35,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="navbar-nav mr-auto">
                             <a href="{{route('admin.users.index')}}">Korisnici</a>
+                            <a href="{{route('worker.shipments.index')}}">Posiljke</a>
                         </li>
                     </ul>
 
