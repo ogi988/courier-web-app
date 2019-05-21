@@ -27,24 +27,18 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        // dd($moremore, $more);
-        // $moje_posiljke = DB::table('shipments')->where('id', $id);
-        // return view('worker.index')->with('shipments',ShipmentTemp::where('status', 0)->get())->with($moje_posiljke);
-        // return view('worker.index')->with('shipments',Shipment::where('status', 0));
-        // $ljubica = $more::where('user_id', $id);
-        // $moje = DB::table('shipment_user')->first()::where('user_id', $id);
+        
 
 
         $id = Auth::id();
         $sve = ShipmentTemp::where('status', 0)->get();
         $more = DB::table('shipment_user')->where('user_id', $id)->pluck('shipment_id');
         if($more->isEmpty()){
-            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more]);
             
+            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more]);            
             
-        } else{
-            $moremore = Shipment::where('id', $more)->get();
-            dd($moremore, $more);
+        } else{            
+            $moremore = Shipment::whereIn('id', $more)->get();            
             return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $moremore]);
         }
 
