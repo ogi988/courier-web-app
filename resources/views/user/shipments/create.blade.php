@@ -107,12 +107,12 @@
                             </div>
                             <h4>Podaci o posiljci</h4>
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Tezina paketa') }}</label>
+                                <label for="mass" class="col-md-4 col-form-label text-md-right">{{ __('Tezina paketa') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
+                                    <input id="mass" type="mass" class="form-control @error('mass') is-invalid @enderror" name="mass" value="{{ old('mass') }}" autocomplete="mass">
 
-                                    @error('email')
+                                    @error('mass')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
                                    </span>

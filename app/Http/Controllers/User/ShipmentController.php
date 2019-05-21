@@ -54,9 +54,9 @@ class ShipmentController extends Controller
         $shipment->address = $request->address;
         $shipment->email =$request->email;
         $shipment->city = $request->city;
-        $shipment->number = $request>number;
+        $shipment->number = $request->number;
         $shipment->shipment_price = $request->shipment_price;
-        $shipment->transport_price = $request>transport_price;
+        $shipment->transport_price = $request->transport_price;
         $shipment->type = $s->type;
         $shipment->save();
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Shipment;
+use App\ShipmentTemp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,28 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        return view('worker.index')->with('shipments',Shipment::all());
+        // dd($moremore, $more);
+        // $moje_posiljke = DB::table('shipments')->where('id', $id);
+        // return view('worker.index')->with('shipments',ShipmentTemp::where('status', 0)->get())->with($moje_posiljke);
+        // return view('worker.index')->with('shipments',Shipment::where('status', 0));
+        // $ljubica = $more::where('user_id', $id);
+        // $moje = DB::table('shipment_user')->first()::where('user_id', $id);
+
+
+        $id = Auth::id();
+        $sve = ShipmentTemp::where('status', 0)->get();
+        $more = DB::table('shipment_user')->where('user_id', $id)->pluck('shipment_id');
+        if($more->isEmpty()){
+            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more]);
+            
+            
+        } else{
+            $moremore = Shipment::where('id', $more)->get();
+            dd($moremore, $more);
+            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $moremore]);
+        }
+
+        
     }
 
     /**
@@ -150,8 +172,8 @@ class ShipmentController extends Controller
 
         $userid = Auth::id();
         $user = User::where('id', $userid)->first();
-
-
+        
+        $shipment_temp = ShipmentTemp::find($id);
 
         $shipment = new Shipment;
         $shipment->shipment_number = $s->shipment_number;
@@ -169,8 +191,12 @@ class ShipmentController extends Controller
         $shipment->shipment_price = $s->shipment_price;
         $shipment->transport_price = $s->transport_price;
         $shipment->type = $s->type;
+
+        $shipment_temp->status = 1;
+        $shipment_temp->save();
+
         $shipment->save();
-        $shipment->users()->attach($user);
+        $shipment->users()->attach($user,['shipment_number' => $s->shipment_number]);
         return redirect('worker/shipments');
     }
 

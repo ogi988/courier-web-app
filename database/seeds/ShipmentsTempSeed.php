@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 use App\User;
-use App\Shipment;
-class ShipmentsSeed extends Seeder
+use App\ShipmentTemp;
+
+class ShipmentsTempSeed extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,9 +14,9 @@ class ShipmentsSeed extends Seeder
      */
     public function run()
     {
-        Shipment::truncate();
-        $user = User::where('id', '13')->first();
-        $shipment = Shipment::create([
+        ShipmentTemp::truncate();
+        $user = User::where('id', '1')->first();
+        $shipment_temp = ShipmentTemp::create([
             'shipment_number' => 'saf24adfsd',
             'status'=> 0,
             'method_payment'=>1,
@@ -31,7 +33,7 @@ class ShipmentsSeed extends Seeder
             'shipment_price'=>100,
             'type'=>1
         ]);
-        $shipment = Shipment::create([
+        $shipment_temp = ShipmentTemp::create([
             'shipment_number' => 'broj',
             'status'=> 0,
             'method_payment'=>1,
@@ -48,7 +50,5 @@ class ShipmentsSeed extends Seeder
             'shipment_price'=>200,
             'type'=>1
         ]);
-        $shipment->users()->attach($user);
-
     }
 }
