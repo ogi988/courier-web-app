@@ -37,6 +37,9 @@
                             <a href="{{route('admin.users.index')}}">Korisnici</a>
                             <a href="{{route('worker.shipments.index')}}">Posiljke</a>
                         </li>
+                        <li class="navbar-nav mr-auto">
+                            <a href="{{route('user.shipments.index')}}">Posiljke</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

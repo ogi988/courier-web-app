@@ -9,6 +9,8 @@ use App\Shipment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class ShipmentController extends Controller
 {
@@ -41,11 +43,12 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         $shipment = new Shipment;
-        $user = User::where('id', $request->id)->first();
 
-        $shipment->shipment_number = $request->shipment_number;
-        $shipment->status = 1;
-        $shipment->method_payment = $request->method_payment;
+        $user = User::find(Auth::id())->first();
+
+        $shipment->shipment_number = Str::random(8);
+        $shipment->status = 0;
+        $shipment->method_payment =1; //$request->method_payment;
         $shipment->mass = $request->mass;
         $shipment->category = $request->category;
         $shipment->who_pay = $request->who_pay;
@@ -57,13 +60,14 @@ class ShipmentController extends Controller
         $shipment->number = $request->number;
         $shipment->shipment_price = $request->shipment_price;
         $shipment->transport_price = $request->transport_price;
-        $shipment->type = $s->type;
+        $shipment->type = $request->type;
+        //$shipment->shipment_price = $request->shipment_price;
+        $shipment->transport_price = 300;
         $shipment->save();
 
-        $shipment->save();
         $shipment->users()->attach($user);
 
-        return redirect('admin/users');
+        return redirect('user/shipments');
     }
 
     /**

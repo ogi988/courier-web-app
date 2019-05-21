@@ -16,10 +16,10 @@
                             </div>
                             <div class="form-check align-content-center">
 
-                                <input class="form-check-input" id="1" type="radio" name="izbor" value="1">
+                                <input class="form-check-input" id="1" type="radio" name="type" value="1">
                                 <label for="1" class="form-check-label">Fizicko lice</label><br>
 
-                                <input class="form-check-input" id="2" type="radio" name="izbor" value="2">
+                                <input class="form-check-input" id="2" type="radio" name="type" value="2">
                                 <label for="2" class="form-check-label">Pravno lice</label><br>
 
 
@@ -107,12 +107,12 @@
                             </div>
                             <h4>Podaci o posiljci</h4>
                             <div class="form-group row">
-                                <label for="mass" class="col-md-4 col-form-label text-md-right">{{ __('Tezina paketa') }}</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Tezina paketa') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="mass" type="mass" class="form-control @error('mass') is-invalid @enderror" name="mass" value="{{ old('mass') }}" autocomplete="mass">
+                                    <input id="mass" type="text" class="form-control @error('email') is-invalid @enderror" name="mass" value="{{ old('email') }}" autocomplete="email">
 
-                                    @error('mass')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                        <strong>{{ $message }}</strong>
                                    </span>
@@ -123,7 +123,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Kategorija') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select custom-select-lg mb-3" >
+                                    <select class="custom-select custom-select-lg mb-3" name="category" id="category" >
                                         <option label="Auto delovi i oprema" value="Auto delovi i oprema">Auto delovi i oprema</option>
                                         <option label="Bebi oprema i dečje stvari" value="Bebi oprema i dečje stvari">Bebi oprema i dečje stvari</option>
                                         <option label="Bela tehnika" value="Bela tehnika">Bela tehnika</option>
@@ -161,10 +161,10 @@
                             </div>
                             <div class="form-check align-content-center">
 
-                                <input class="form-check-input" id="1" type="radio" name="izbor" value="1">
+                                <input class="form-check-input" id="1" type="radio" name="who_pay" value="1">
                                 <label for="1" class="form-check-label">Plaća pošiljalac</label><br>
 
-                                <input class="form-check-input" id="2" type="radio" name="izbor" value="2">
+                                <input class="form-check-input" id="2" type="radio" name="who_pay" value="2">
                                 <label for="2" class="form-check-label">Plaća primalac</label><br>
 
 
