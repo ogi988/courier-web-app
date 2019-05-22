@@ -19,7 +19,6 @@ class CreateShipmentUserTable extends Migration
         Schema::create('shipment_user', function (Blueprint $table) {
             
             $table->bigIncrements('id');
-            $table->string('shipment_number');
             $table->integer('shipment_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();

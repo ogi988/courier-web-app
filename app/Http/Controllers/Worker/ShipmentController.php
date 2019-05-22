@@ -190,7 +190,7 @@ class ShipmentController extends Controller
         $shipment_temp->save();
 
         $shipment->save();
-        $shipment->users()->attach($user,['shipment_number' => $s->shipment_number]);
+        $shipment->users()->attach($user);
         return redirect('worker/shipments');
     }
 

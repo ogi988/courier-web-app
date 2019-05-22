@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shipment extends Model
 {
     public function users(){
-        return $this->belongsToMany('App\User')->withPivot('shipment_number');
+        return $this->belongsToMany('App\User');
         
     }
 }
