@@ -27,15 +27,19 @@ Route::get('/admin', function (){
 
 Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->name('admin.')->group(function (){
     Route::resource('/users','UserController');
+    Route::resource('/vehicles','VehicleController');
 });
 
 
 Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])->name('worker.')->group(function (){
     Route::resource('/shipments', 'ShipmentController');
     Route::post('/shipments/zaduzi', 'ShipmentController@zaduzi')->name('shipments.zaduzi');
+    Route::resource('/vehicles','VehicleController');
+
 });
 
 Route::namespace('User')->prefix('user')->middleware(['auth','auth.user'])->name('user.')->group(function (){
     Route::resource('/shipments','ShipmentController');
+
 
 });

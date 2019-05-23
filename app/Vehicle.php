@@ -4,10 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ShipmentTemp extends Model
+class Vehicle extends Model
 {
     public function users(){
-        return $this->belongsToMany('App\User');
-        
+        return $this->belongsToMany('App\User');        
     }
 }
