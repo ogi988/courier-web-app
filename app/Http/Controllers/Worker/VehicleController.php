@@ -117,10 +117,14 @@ class VehicleController extends Controller
         //
     }
 
-    public function zaduzeno()
+    public function razduzi(Request $request)
     {
-        $moje_zaduzenje = Vehicle::where('user_id', $user_id)->get();
+        $id = $request->idid;
+        $moje_zaduzenje = Vehicle::where('id', $id)->first();
+        
+        $moje_zaduzenje->user_id = null;
+        $moje_zaduzenje->save();
 
-        return view('worker.vehicles.zaduzeno')->with('my_vehicle',$moje_zaduzenje);
+        return redirect('worker/vehicles'); 
     }
 }

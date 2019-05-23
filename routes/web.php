@@ -35,6 +35,8 @@ Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])
     Route::resource('/shipments', 'ShipmentController');
     Route::post('/shipments/zaduzi', 'ShipmentController@zaduzi')->name('shipments.zaduzi');
     Route::resource('/vehicles','VehicleController');
+    Route::post('/vehicles/razduzi', 'VehicleController@razduzi')->name('vehicles.razduzi');
+
 
 });
 

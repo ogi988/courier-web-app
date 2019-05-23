@@ -48,7 +48,9 @@
                             <tr>
                                 <th scope="col">Marka</th>
                                 <th scope="col">Tip</th>                                
-                                <th scope="col">Nosivost</th>                                
+                                <th scope="col">Nosivost</th> 
+                                <th scope="col">Razduzi</th>                                
+
 
                             </tr>
                             </thead>
@@ -58,6 +60,15 @@
                                     <th>{{ $v->brand }}</th>
                                     <th>{{ $v->type }}</th>
                                     <th>{{ $v->transport_capacity }}</th>
+                                    <th>
+                                <form method='POST' action = "{{route('worker.vehicles.razduzi')}}">
+                                    @csrf
+                                    <input type="text" name="idid" value="{{ $v->id }}" hidden>
+                                    <button type="submit" class="btn btn-primary btn-sm">Razduzi</button>
+                                    
+
+                                </form>
+                                </th>
                                     
                                 </tr>
                             @endforeach
