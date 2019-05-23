@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\ShipmentTemp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -43,11 +44,11 @@ class ShipmentController extends Controller
     public function store(Request $request)
     {
         $shipment = new Shipment;
-
+        $shipmentTemp = new ShipmentTemp;
         $user = User::find(Auth::id())->first();
 
         $shipment->shipment_number = Str::random(8);
-        $shipment->status = 0;
+        $shipment->status = 'Posiljka nije pokupljena';
         $shipment->method_payment =1; //$request->method_payment;
         $shipment->mass = $request->mass;
         $shipment->category = $request->category;
@@ -64,6 +65,25 @@ class ShipmentController extends Controller
         //$shipment->shipment_price = $request->shipment_price;
         $shipment->transport_price = 300;
         $shipment->save();
+
+        $shipmentTemp->shipment_number = Str::random(8);
+        $shipmentTemp->status = 'Posiljka nije pokupljena';
+        $shipmentTemp->method_payment =1; //$request->method_payment;
+        $shipmentTemp->mass = $request->mass;
+        $shipmentTemp->category = $request->category;
+        $shipmentTemp->who_pay = $request->who_pay;
+        $shipmentTemp->name = $request->name;
+        $shipmentTemp->surname = $request->surname;
+        $shipmentTemp->address = $request->address;
+        $shipmentTemp->email =$request->email;
+        $shipmentTemp->city = $request->city;
+        $shipmentTemp->number = $request->number;
+        $shipmentTemp->shipment_price = $request->shipment_price;
+        $shipmentTemp->transport_price = $request->transport_price;
+        $shipmentTemp->type = $request->type;
+        //$shipmentTemp->shipment_price = $request->shipment_price;
+        $shipmentTemp->transport_price = 300;
+        $shipmentTemp->save();
 
         $shipment->users()->attach($user);
 

@@ -66,9 +66,9 @@ class ShipmentController extends Controller
         // $shipment = Shipment::find($id);
         // $user->shipments()->sync($request->shipments);
 
-        $id = $request->p;
-        $s = Shipment::find($id);
-        dd($s);
+        //$id = $request->p;
+        //$s = Shipment::find($id);
+        //dd($s);
         // $shipment = new Shipment;
         
         // $shipment_number = $request->shipment_number;
