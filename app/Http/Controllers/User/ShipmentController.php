@@ -48,7 +48,7 @@ class ShipmentController extends Controller
         $user = User::find(Auth::id())->first();
 
         $shipment->shipment_number = Str::random(8);
-        $shipment->status = 'Posiljka nije pokupljena';
+        $shipment->status = 0;
         $shipment->method_payment =1; //$request->method_payment;
         $shipment->mass = $request->mass;
         $shipment->category = $request->category;
@@ -67,7 +67,7 @@ class ShipmentController extends Controller
         $shipment->save();
 
         $shipmentTemp->shipment_number = Str::random(8);
-        $shipmentTemp->status = 'Posiljka nije pokupljena';
+        $shipmentTemp->status = 0;
         $shipmentTemp->method_payment =1; //$request->method_payment;
         $shipmentTemp->mass = $request->mass;
         $shipmentTemp->category = $request->category;

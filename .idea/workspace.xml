@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e740044-fd1d-4354-a605-d14912851762" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_05_21_140559_create_shipment_temps_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_05_21_140559_create_shipment_temps_table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-777">
-              <caret line="69" column="58" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
+            <state relative-caret-position="222">
+              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
               <folding>
                 <element signature="e#45#66#0#PHP" expanded="true" />
               </folding>
@@ -78,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
+            <state relative-caret-position="363">
               <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="29" />
             </state>
           </provider>
@@ -102,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_18_183731_create_shipments_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+            <state relative-caret-position="304">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -150,11 +149,11 @@
         <option value="$PROJECT_DIR$/public/js/video.js" />
         <option value="$PROJECT_DIR$/resources/views/worker/barcode.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/user/shipments/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_21_140559_create_shipment_temps_table.php" />
         <option value="$PROJECT_DIR$/resources/views/user/shipments/index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_18_183731_create_shipments_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php" />
       </list>
     </option>
   </component>
@@ -374,11 +373,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.2019_05_18_183731_create_shipments_table.php">
+    <configuration name="2019_05_18_183731_create_shipments_table.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/WP_projekat/database/migrations/2019_05_18_183731_create_shipments_table.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.2019_05_18_183731_create_shipments_table.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -401,7 +408,7 @@
       <workItem from="1558387635941" duration="5061000" />
       <workItem from="1558441038760" duration="2443000" />
       <workItem from="1558460775165" duration="1710000" />
-      <workItem from="1558614224503" duration="5562000" />
+      <workItem from="1558614224503" duration="7362000" />
     </task>
     <task id="LOCAL-00001" summary="add user">
       <created>1558204590117</created>
@@ -445,11 +452,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558303396607</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="user">
+      <created>1558621358171</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1558621358171</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43143000" />
+    <option name="totallyTimeSpent" value="44943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -460,7 +474,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.32956153" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -469,7 +483,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49932975" weight="0.32956153" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.042432815" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -557,7 +571,8 @@
     <MESSAGE value="shipments added  ;)" />
     <MESSAGE value="sveeeee" />
     <MESSAGE value="worker" />
-    <option name="LAST_COMMIT_MESSAGE" value="worker" />
+    <MESSAGE value="user" />
+    <option name="LAST_COMMIT_MESSAGE" value="user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,23 +866,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-777">
-          <caret line="69" column="58" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
-          <folding>
-            <element signature="e#45#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/user/shipments/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1640">
@@ -891,8 +889,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_18_183731_create_shipments_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        <state relative-caret-position="304">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Worker/ShipmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="173" column="28" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/ShipmentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+          <folding>
+            <element signature="e#45#66#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
