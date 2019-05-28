@@ -15,9 +15,9 @@ class ShipmentsTempSeed extends Seeder
     public function run()
     {
         ShipmentTemp::truncate();
-        $user = User::where('id', '1')->first();
+        $user = User::where('id', '2')->first();
         $shipment_temp = ShipmentTemp::create([
-            'shipment_number' => 'saf24adfsd',
+            'shipment_number' => '8056426179730',
             'status'=> 0,
             'method_payment'=>1,
             'mass'=>'23kg',
@@ -50,5 +50,8 @@ class ShipmentsTempSeed extends Seeder
             'shipment_price'=>200,
             'type'=>1
         ]);
+        //$shipment_temp->users()->attach($user);
+
+
     }
 }

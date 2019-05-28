@@ -18,10 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/track', 'HomeController@track')->name('track');
 
-Route::get('/admin', function (){
-    return "ti si admir";
+/*Route::get('/admin', function (){
+  return "admin";
 })->middleware(['auth','auth.admin']);
+*/
 
 
 

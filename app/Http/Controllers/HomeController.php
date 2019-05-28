@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Shipment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['welcome', 'track']);;
     }
 
     /**
@@ -24,5 +24,11 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function track(Request $request)
+    {
+        $shipment = Shipment::where('shipment_number',$request->track)->get();
+        return view('track')->with('shipments',$shipment);
+
     }
 }

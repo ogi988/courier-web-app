@@ -13,9 +13,9 @@ class ShipmentsSeed extends Seeder
     public function run()
     {
         Shipment::truncate();
-        $user = User::where('id', '13')->first();
+        $user = User::where('id', '2')->first();
         $shipment = Shipment::create([
-            'shipment_number' => 'saf24adfsd',
+            'shipment_number' => '8056426179730',
             'status'=> 0,
             'method_payment'=>1,
             'mass'=>'23kg',
