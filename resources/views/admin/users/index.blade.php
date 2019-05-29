@@ -2,63 +2,100 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-                <h3>Dodaj korisnika</h3>
-                <a href="{{ route('admin.users.create') }}"  >
-                    <button type="button" class="btn btn-success btn-md">Add</button>
-                </a>
-                <div class="card" style="margin:16px 0px 24px 0px">
-
-                    <div class="card-header">Korisnici</div>
-
-                    <div class="card-body-lg">
-                        <table class="table table-responsive table-striped ">
-                            <thead>
-                            <tr>
-                                <th scope="col">Name</th>
-                                <th scope="col">Prezime</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Grad</th>
-                                <th scope="col">Adressa</th>
-                                <th scope="col">Broj telefona</th>
-                                <th scope="col">Tip</th>
-                                <th scope="col">Edit</th>
-                                <th scope="col">Delete</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($users as $user)
-                                <tr>
-                                    <th>{{ $user->name }}</th>
-                                    <th>{{ $user->surname }}</th>
-                                    <th>{{ $user->email }}</th>
-                                    <th>{{ $user->city }}</th>
-                                    <th>{{ $user->address }}</th>
-                                    <th>{{ $user->number }}</th>
-                                    <th>{{ implode(', ',$user->roles()->pluck('name')->toArray()) }}</th>
-
-                                    <th>
-                                        <a href="{{ route('admin.users.edit', $user->id) }}"  >
-                                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                                        </a>
-
-                                    </th>
-                                    <th>
-                                        <form action="{{ route('admin.users.destroy',$user->id) }}" method="post" >
-                                            @csrf
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
-                                    </th>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+        
+        <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Tabela Usera</h4>
+                    
                 </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <tr><th>
+                          Ime
+                        </th>
+                        <th>
+                          Prezime
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Grad
+                        </th>
+                        <th>
+                          Adresa
+                        </th>
+                        <th>
+                          Telefon
+                        </th>
+                        <th>
+                          Tip
+                        </th>
+                        <th>
+                          Izmeni
+                        </th>
+                        <th>
+                          Obrisi
+                        </th>
+                      </tr></thead>
+                      <tbody>
+                      @foreach($users as $user)
+                        <tr>
+                          <td>
+                          {{ $user->name }}
+                          </td>
+                          <td>
+                          {{ $user->surname }}
+                          </td>
+                          <td>
+                          {{$user->email }}
+                          </td>
+                          <td>
+                          {{ $user->city }}
+                          </td>
+                          <td>
+                          {{ $user->address }}
+                          </td>
+                          <td>
+                          {{ $user->number }}
+                          </td>
+                          <td class="text-primary">
+                          {{ implode(', ',$user->roles()->pluck('name')->toArray()) }}
+                          </td>
+                          <td>
+                          <a href="{{ route('admin.users.edit', $user->id) }}"  >
+                            <button type="button" class="btn btn-primary btn-sm">Edit</button>
+                          </a>
+                          </td>
+                          <td>
+                          <form action="{{ route('admin.users.destroy',$user->id) }}" method="post" >
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                          </form>
+                          </td>
+                        </tr>
+                        @endforeach
+                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <p><small>Dodaj novog korisnika </small> 
+              </p>
+              <a href="{{ route('admin.users.create') }}"  >
+              <button type="button" class="btn btn-primary btn-round">Dodaj</button>
+              </a>
             </div>
-        </div>
     </div>
+
+    
+            
 @endsection
