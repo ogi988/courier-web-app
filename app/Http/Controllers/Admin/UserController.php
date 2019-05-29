@@ -126,6 +126,6 @@ class UserController extends Controller
     {
         User::destroy($id);
         DB::table('role_user')->where('user_id',$id)->delete();
-        return redirect()->route('admin.users.index')->with('success','User has been deleted');
+        return redirect()->route('admin.users.index')->with('success','Korisnik je obrisan');
     }
 }

@@ -81,31 +81,32 @@
 
 
 <main class="py-4">
-    @yield('content')
+    @if (Auth::check())
     <div class="wrapper ">
         <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
         
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-        Tip 2: you can also add an image using data-image tag
-    -->
+        Tip 2: you can also add an image using data-image tag -->
 
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="#" class="simple-text logo-normal">
             Kurirska sluzba V1.0
         </a>
       </div>
-      @if(isset(Auth::user()->name))
 
       <div class="sidebar-wrapper">
         <ul class="nav">
+            @hasrole('user')
           <li class="nav-item">
             <a class="nav-link" href="{{route('user.shipments.index')}}">
               <i class="material-icons">dashboard</i>
               <p>Posiljke</p>
             </a>
           </li>
+            @endhasrole
+            @hasrole('admin')
           <li class="nav-item ">
             <a class="nav-link" href="{{route('admin.users.index')}}">
               <i class="material-icons">person</i>
@@ -118,6 +119,21 @@
               <p>Vozila</p>
             </a>
           </li>
+            @endhasrole
+            @hasrole('worker')
+            <li class="nav-item ">
+                <a class="nav-link" href="{{route('worker.shipments.index')}}">
+                    <i class="material-icons">person</i>
+                    <p>Posiljke</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{route('worker.vehicles.index')}}">
+                    <i class="material-icons">commute</i>
+                    <p>Vozila</p>
+                </a>
+            </li>
+            @endhasrole
           <li class="nav-item active-pro">
             
             <a class="nav-link" href="{{ route('logout') }}"
@@ -133,13 +149,14 @@
                 @csrf
             </form>
           </li>
-          @endif
-        
+
         </ul>
       </div>
     </div>
+        @endif
+        @yield('content')
     </div>
-   
+
         </main>
     </div>
 

@@ -90,8 +90,9 @@ class VehicleController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy($id)
     {
-        //
+        Vehicle::destroy($id);
+        return redirect()->route('admin.vehicle.index')->with('success','Vozilo je obrisano');
     }
 }
