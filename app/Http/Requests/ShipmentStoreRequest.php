@@ -32,6 +32,7 @@ class ShipmentStoreRequest extends FormRequest
             'city' => 'required|string|max:50',
             'address' => 'required|string',
             'number' => 'required|string|max:20',
+            'shipment_price' => 'integer',
             'type' => 'required',
         ];
     }

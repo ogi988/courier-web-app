@@ -137,6 +137,7 @@
 
                                 </div>
 
+
                             </div>
                             <span id="cena"></span>
                             <div>
@@ -177,10 +178,21 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div>
+                                <div class="form-group row">
+                                    <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Otkupnina') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="shipment_price" type="number" class="form-control @error('shipent_price') is-invalid @enderror" name="shipment_price" value="{{ old('shipment_price') }}" autocomplete="number" >
+
+                                        @error('shipment_price')
+                                        <span class="invalid-feedback" role="alert">
+                                       <strong>{{ $message }}</strong>
+                                   </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
 
-                            </div>
                             <div class="form-check align-content-center">
 
                                 <input class="form-check-input" id="who" type="radio" name="who_pay" value="1">
