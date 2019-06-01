@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Http\Requests\ShipmentStoreRequest;
 
 
 class ShipmentController extends Controller
@@ -41,7 +42,7 @@ class ShipmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShipmentStoreRequest $request)
     {
         $shipment = new Shipment;
         $shipmentTemp = new ShipmentTemp;
