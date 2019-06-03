@@ -29,14 +29,9 @@
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/material-dashboard.css') }}" rel="stylesheet">
 </head>
-<body>
+<body>   
     
-    
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+     
     <!-- <center>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -46,36 +41,6 @@
     </button>
   </center> -->
 
-<div class="row">
-<div class="col-md-2">
-    
-        
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
-
-      @if(isset(Auth::user()->name))
-
-
-
-<div class = "col-md-10">
-@yield('content')
-
-</div>
-</div>
-       
-    
-    
-<!-- <center>
-<button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-</button>
-</center> -->
 
 <div class="row">
     <div class="col-md-2">
