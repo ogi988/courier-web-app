@@ -360,9 +360,12 @@ class ComposerStaticInit05d1660447428e6618204183f16ee4f8
     );
 
     public static $classMap = array (
+        'App\\AdminSettings' => __DIR__ . '/../..' . '/app/AdminSettings.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin\\PostavkeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PostavkeController.php',
         'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
+        'App\\Http\\Controllers\\Admin\\VehicleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/VehicleController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -372,6 +375,7 @@ class ComposerStaticInit05d1660447428e6618204183f16ee4f8
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\User\\ShipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/ShipmentController.php',
         'App\\Http\\Controllers\\Worker\\ShipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Worker/ShipmentController.php',
+        'App\\Http\\Controllers\\Worker\\VehicleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Worker/VehicleController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AccessAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/AccessAdmin.php',
         'App\\Http\\Middleware\\AccessUser' => __DIR__ . '/../..' . '/app/Http/Middleware/AccessUser.php',

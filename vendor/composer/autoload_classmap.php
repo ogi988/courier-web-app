@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\AdminSettings' => $baseDir . '/app/AdminSettings.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\Admin\\PostavkeController' => $baseDir . '/app/Http/Controllers/Admin/PostavkeController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
+    'App\\Http\\Controllers\\Admin\\VehicleController' => $baseDir . '/app/Http/Controllers/Admin/VehicleController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -18,6 +21,7 @@ return array(
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\User\\ShipmentController' => $baseDir . '/app/Http/Controllers/User/ShipmentController.php',
     'App\\Http\\Controllers\\Worker\\ShipmentController' => $baseDir . '/app/Http/Controllers/Worker/ShipmentController.php',
+    'App\\Http\\Controllers\\Worker\\VehicleController' => $baseDir . '/app/Http/Controllers/Worker/VehicleController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AccessAdmin' => $baseDir . '/app/Http/Middleware/AccessAdmin.php',
     'App\\Http\\Middleware\\AccessUser' => $baseDir . '/app/Http/Middleware/AccessUser.php',

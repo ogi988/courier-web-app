@@ -30,6 +30,7 @@ Route::post('/track', 'HomeController@track')->name('track');
 Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->name('admin.')->group(function (){
     Route::resource('/users','UserController');
     Route::resource('/vehicles','VehicleController');
+    Route::resource('/postavke','PostavkeController');
 });
 
 

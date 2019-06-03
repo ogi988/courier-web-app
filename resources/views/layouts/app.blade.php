@@ -62,28 +62,25 @@
     <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    
     
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
         Tip 2: you can also add an image using data-image tag
     -->
-    <center>
+    <!-- <center>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
     </button>
-  </center>
+  </center> -->
 
-
-
-<main class="py-4">
-    @yield('content')
-    <div class="wrapper ">
-        <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+<div class="row">
+<div class="col-md-2">
+    
         
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -91,15 +88,16 @@
         Tip 2: you can also add an image using data-image tag
     -->
 
-      <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-            Kurirska sluzba V1.0
-        </a>
-      </div>
       @if(isset(Auth::user()->name))
 
-      <div class="sidebar-wrapper">
-        <ul class="nav">
+<div class="sidebar-wrapper">
+  <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="logo">
+      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        Kurirska sluzba 
+      </a>
+    </div>
+    <ul class="nav">
           <li class="nav-item">
             <a class="nav-link" href="{{route('user.shipments.index')}}">
               <i class="material-icons">dashboard</i>
@@ -116,6 +114,12 @@
             <a class="nav-link" href="{{route('admin.vehicles.index')}}">
               <i class="material-icons">commute</i>
               <p>Vozila</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " href="{{route('admin.postavke.index')}}">
+              <i class="material-icons">settings</i>
+              <p>Postavke</p>
             </a>
           </li>
           <li class="nav-item active-pro">
@@ -136,12 +140,21 @@
           @endif
         
         </ul>
-      </div>
-    </div>
-    </div>
-   
-        </main>
-    </div>
+  </div>
+</div>
+</div>
+
+<div class = "col-md-10">
+@yield('content')
+
+</div>
+</div>
+
+
+
+       
+     
+    
 
        
     
@@ -160,7 +173,7 @@
 
         fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-        if (window_width > 312 && fixed_plugin_open == 'Dashboard') {
+        if (window_width > 555 && fixed_plugin_open == 'Dashboard') {
           if ($('.fixed-plugin .dropdown').hasClass('show-dropdown')) {
             $('.fixed-plugin .dropdown').addClass('open');
           }
