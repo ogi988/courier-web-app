@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Arr;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
+use App\Http\Requests\UserStoreRequest;
 
 class UserController extends Controller
 {
@@ -96,7 +97,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserStoreRequest $request)
     {
         $user = new User;
         $userRole = $request->izbor;
@@ -183,6 +184,7 @@ class UserController extends Controller
     {
         User::destroy($id);
         DB::table('role_user')->where('user_id',$id)->delete();
-        return redirect()->route('admin.users.index')->with('success','User has been deleted');
+        return redirect()->route('admin.users.index')->with('success','Korisnik je obrisan');
     }
+
 }

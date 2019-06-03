@@ -193,6 +193,24 @@ class ShipmentController extends Controller
         $shipment->users()->attach($user);
         return redirect('worker/shipments');
     }
+    public function barcode()
+    {
+        return view('worker.barcode');
+    }
+    public function ajaxRequestPost(Request $request)
 
+    {
+
+        $input = $request->barcode;
+        $shipmentNumber = ShipmentTemp::where('shipment_number', $input)->first();
+        if($shipmentNumber){
+            $message = 'Uspesno promenjen status paketa'.$input;
+        }
+        else{
+            $message = 'Doslo je do greske pri skeniranju';
+        }
+        return response()->json(['success'=>$message]);
+
+    }
     
 }

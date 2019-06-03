@@ -19,18 +19,26 @@
                                 <th scope="col">Trenutni korisnik</th>
                                 <th scope="col">Marka</th>
                                 <th scope="col">Tip</th>                                
-                                <th scope="col">Nosivost</th>                                
+                                <th scope="col">Nosivost</th>
+                                <th scope="col">Obrisi</th>
 
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($vehicles as $vehicle)
                                 <tr>
-                                    <th>{{ $vehicle->id }}</th>
-                                    <th>{{ $vehicle->user_id }}</th>
-                                    <th>{{ $vehicle->brand }}</th>
-                                    <th>{{ $vehicle->type }}</th>
-                                    <th>{{ $vehicle->transport_capacity }}</th>
+                                    <td>{{ $vehicle->id }}</td>
+                                    <td>{{ $vehicle->user_id }}</td>
+                                    <td>{{ $vehicle->brand }}</td>
+                                    <td>{{ $vehicle->type }}</td>
+                                    <td>{{ $vehicle->transport_capacity }}</td>
+                                    <td>
+                                        <form action="{{ route('admin.vehicles.destroy',$vehicle->id) }}" method="post" >
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

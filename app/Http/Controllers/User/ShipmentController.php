@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Http\Requests\ShipmentStoreRequest;
 
 
 class ShipmentController extends Controller
@@ -22,7 +23,7 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        return view('user.shipments.index')->with('shipments',Shipment::all());
+        return view('user.shipments.index')->with('shipments',ShipmentTemp::all());
     }
 
     /**
@@ -41,13 +42,14 @@ class ShipmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShipmentStoreRequest $request)
     {
         $shipment = new Shipment;
         $shipmentTemp = new ShipmentTemp;
+        $random = Str::random(8);
         $user = User::find(Auth::id())->first();
 
-        $shipment->shipment_number = Str::random(8);
+        $shipment->shipment_number = $random;
         $shipment->status = 0;
         $shipment->method_payment =1; //$request->method_payment;
         $shipment->mass = $request->mass;
@@ -62,11 +64,11 @@ class ShipmentController extends Controller
         $shipment->shipment_price = $request->shipment_price;
         $shipment->transport_price = $request->transport_price;
         $shipment->type = $request->type;
-        //$shipment->shipment_price = $request->shipment_price;
+        $shipment->shipment_price = $request->shipment_price;
         $shipment->transport_price = 300;
         $shipment->save();
 
-        $shipmentTemp->shipment_number = Str::random(8);
+        $shipmentTemp->shipment_number = $random;
         $shipmentTemp->status = 0;
         $shipmentTemp->method_payment =1; //$request->method_payment;
         $shipmentTemp->mass = $request->mass;
@@ -81,7 +83,7 @@ class ShipmentController extends Controller
         $shipmentTemp->shipment_price = $request->shipment_price;
         $shipmentTemp->transport_price = $request->transport_price;
         $shipmentTemp->type = $request->type;
-        //$shipmentTemp->shipment_price = $request->shipment_price;
+        $shipmentTemp->shipment_price = $request->shipment_price;
         $shipmentTemp->transport_price = 300;
         $shipmentTemp->save();
 

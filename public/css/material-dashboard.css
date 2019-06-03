@@ -10824,9 +10824,8 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
 }
 
 .form-check .form-check-input {
-  
   position: absolute;
-  margin: 0;  
+  margin: 0;
   overflow: hidden;
   left: 0;
   pointer-events: none;

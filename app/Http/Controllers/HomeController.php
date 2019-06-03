@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Shipment;
 use Illuminate\Http\Request;
+use App\ShipmentTemp;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     public function track(Request $request)
     {
-        $shipment = Shipment::where('shipment_number',$request->track)->get();
-        return view('track')->with('shipments',$shipment);
+        $shipments = Shipment::where('shipment_number',$request->track)->get();
+        $shipmentstemp = ShipmentTemp::where('shipment_number',$request->track)->get();
+        return view('track')->with(['shipments' =>$shipments, 'shipmentstemp' => $shipmentstemp]);
 
     }
 }
