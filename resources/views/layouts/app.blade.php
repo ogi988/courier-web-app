@@ -10,13 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('/js/app.js') }}" ></script>
     <!--   Core JS Files   -->
-  <script src="{{asset('js/core/popper.min.js')}}"></script>
-  <script src="{{asset('js/core/bootstrap-material-design.min.js')}}"></script>
-  <script src="{{asset('js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
+  <script src="{{asset('/js/core/popper.min.js')}}"></script>
+  <script src="{{asset('/js/core/bootstrap-material-design.min.js')}}"></script>
+  <script src="{{asset('/js/plugins/perfect-scrollbar.jquery.min.js')}}"></script>
 
-  <script src="{{asset('js/material-dashboard.js?v=2.1.1')}}" type="text/javascript"></script>
+  <script src="{{asset('/js/material-dashboard.js?v=2.1.1')}}" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!-- Fonts -->
@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/material-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/material-dashboard.css') }}" rel="stylesheet">
 </head>
 <body>
 <!-- <center>

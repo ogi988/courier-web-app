@@ -26,6 +26,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     public function track(Request $request)
     {
         $shipments = Shipment::where('shipment_number',$request->track)->get();

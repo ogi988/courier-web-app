@@ -129,4 +129,5 @@ class UserController extends Controller
         DB::table('role_user')->where('user_id',$id)->delete();
         return redirect()->route('admin.users.index')->with('success','Korisnik je obrisan');
     }
+
 }

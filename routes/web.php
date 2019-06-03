@@ -30,12 +30,15 @@ Route::post('/track', 'HomeController@track')->name('track');
 Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->name('admin.')->group(function (){
     Route::resource('/users','UserController');
     Route::resource('/vehicles','VehicleController');
+
 });
 
 
 Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])->name('worker.')->group(function (){
     Route::resource('/shipments', 'ShipmentController');
     Route::post('/shipments/zaduzi', 'ShipmentController@zaduzi')->name('shipments.zaduzi');
+    Route::get('/barcode', 'ShipmentController@barcode')->name('barcode');
+    Route::post('/ajax', 'ShipmentController@ajaxRequestPost');
     Route::resource('/vehicles','VehicleController');
     Route::post('/vehicles/razduzi', 'VehicleController@razduzi')->name('vehicles.razduzi');
 
