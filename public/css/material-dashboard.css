@@ -18825,7 +18825,7 @@ Copyright (c) 2015 Daniel Eden
 .boxes {
   margin: auto;
   padding: 50px;
-  background: #484848;
+  background: rgb(31, 40, 51);
   box-shadow: 10px 16px 26px -6px rgba(0,0,0,0.75);
   border-radius: 0px 55px 0px 55px;
   -moz-border-radius: 0px 55px 0px 55px;
@@ -18834,7 +18834,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .boxes__heading{
   display: flex;
-  background: linear-gradient(to bottom, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);
+  background: #4371b7;
+  color: white;
+  /*background: linear-gradient(to bottom, #b3dced 0%,#29b8e5 50%,#bce0ee 100%);*/
   border-radius: 8px;
 }
 .boxes__heading_wrapper{

@@ -39,7 +39,7 @@ Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])
     Route::resource('/shipments', 'ShipmentController');
     Route::post('/shipments/zaduzi', 'ShipmentController@zaduzi')->name('shipments.zaduzi');
     Route::get('/barcode', 'ShipmentController@barcode')->name('barcode');
-    Route::post('/ajax', 'ShipmentController@ajaxRequestPost');
+    Route::post('/ajax', 'ShipmentController@ajaxRequestPost')->name('ajax');
     Route::resource('/vehicles','VehicleController');
     Route::post('/vehicles/razduzi', 'VehicleController@razduzi')->name('vehicles.razduzi');
 

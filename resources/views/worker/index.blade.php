@@ -126,8 +126,15 @@
                         
                         </tbody>
                         </table>
+
                     </div>
                 </div>
+                <a href="{{route('worker.barcode')}}">
+                <button type="button" class="btn btn-primary" id="start" >
+                    <i class="material-icons">receipt</i>
+                    Skeniraj barkod
+                </button>
+                </a>
             </div>
         </div>
     </div>

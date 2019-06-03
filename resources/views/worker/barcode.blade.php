@@ -18,8 +18,8 @@
     <input type="button" class="btn btn-primary" id="button" value="Zaduzi paket">
 
 
-	<script src="{{asset('/js/jquery-1.11.3.min.js')}}"></script>
-    <script src="{{asset('/js/quagga.js')}}"></script>
+	<script src="{{asset('js/jquery-1.11.3.min.js')}}"></script>
+    <script src="{{asset('js/quagga.js')}}"></script>
 
-    <script src="{{asset('/js/script.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
 @endsection

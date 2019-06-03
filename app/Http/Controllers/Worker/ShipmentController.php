@@ -200,16 +200,45 @@ class ShipmentController extends Controller
     public function ajaxRequestPost(Request $request)
 
     {
+        $userid = Auth::id();
+        $user = User::where('id', $userid)->first();
+
 
         $input = $request->barcode;
-        $shipmentNumber = ShipmentTemp::where('shipment_number', $input)->first();
-        if($shipmentNumber){
+        $shipment_temp = ShipmentTemp::where('shipment_number', $input)->first();
+
+        if($shipment_temp !== null && (int)$shipment_temp->status<4 ){
             $message = 'Uspesno promenjen status paketa'.$input;
+            $shipment = new Shipment;
+            $shipment->shipment_number = $shipment_temp->shipment_number;
+            $shipment->status =(int)$shipment_temp->status + 1;
+            $shipment->method_payment = $shipment_temp->method_payment;
+            $shipment->mass = $shipment_temp->mass;
+            $shipment->category = $shipment_temp->category;
+            $shipment->who_pay = $shipment_temp->who_pay;
+            $shipment->name = $shipment_temp->name;
+            $shipment->surname =$shipment_temp->surname;
+            $shipment->address = $shipment_temp->address;
+            $shipment->email = $shipment_temp->email;
+            $shipment->city = $shipment_temp->city;
+            $shipment->number = $shipment_temp->number;
+            $shipment->shipment_price = $shipment_temp->shipment_price;
+            $shipment->transport_price = $shipment_temp->transport_price;
+            $shipment->type = $shipment_temp->type;
+
+            $shipment_temp->status = (int)$shipment_temp->status + 1;
+            $shipment_temp->save();
+
+            $shipment->save();
+            $shipment->users()->attach($user);
         }
         else{
             $message = 'Doslo je do greske pri skeniranju';
         }
+
         return response()->json(['success'=>$message]);
+
+
 
     }
     
