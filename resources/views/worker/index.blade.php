@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">                    
-                    <h4 class="card-title ">Dostupne posiljke</h4>
+                    <h4 class="card-title ">Posiljke za transfer do magacina</h4>
                     </div>
 
                     <div class="card-body">
@@ -61,7 +61,7 @@
                                     @csrf
                                     <input type="text" name="idid" value="{{ $shipment->id }}" hidden>
                                     <input type="text" name="shipment_number" value="{{ $shipment->shipment_number }}" hidden>
-                                    <button type="submit" class="btn btn-primary btn-sm">Zaduzi!</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Pokupi!</button>
                                     
 
                                 </form>

@@ -32,13 +32,13 @@ class ShipmentController extends Controller
 
         $id = Auth::id();
         $sve = ShipmentTemp::where('status', 0)->get();
-        $more = DB::table('shipment_user')->where('user_id', $id)->pluck('shipment_id');
+        $more = DB::table('shipment_temp_user')->where('user_id', $id)->pluck('shipment_temp_id');
         if($more->isEmpty()){
             
             return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more]);            
             
         } else{            
-            $moremore = Shipment::whereIn('id', $more)->get();            
+            $moremore = ShipmentTemp::whereIn('id', $more)->get();            
             return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $moremore]);
         }
 
@@ -191,6 +191,7 @@ class ShipmentController extends Controller
 
         $shipment->save();
         $shipment->users()->attach($user);
+        $shipment_temp->users()->attach($user);
         return redirect('worker/shipments');
     }
     public function barcode()
@@ -231,6 +232,8 @@ class ShipmentController extends Controller
 
             $shipment->save();
             $shipment->users()->attach($user);
+            $shipment_temp->users()->attach($user);
+
         }
         else{
             $message = 'Doslo je do greske pri skeniranju';
