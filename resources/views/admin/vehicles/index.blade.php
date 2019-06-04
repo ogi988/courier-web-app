@@ -7,7 +7,7 @@
     <div class="row">
 
 <!-- <div class="col-md-10 offset-md-2"> -->
-<div class="col-md-12 ">
+<div class="col-md-12 t-padding ">
   <div class="card">
     <div class="card-header card-header-primary">
       <h4 class="card-title ">Vozila</h4>

@@ -6,7 +6,7 @@
 <div class="row">
 
     <!-- <div class="col-md-10 offset-md-2"> -->
-    <div class="col-md-12 ">
+    <div class="col-md-12 t-padding">
       <div class="card">
         <div class="card-header card-header-primary">
           <h4 class="card-title ">Tabela Usera</h4>
@@ -58,19 +58,23 @@
           </div>
         </div>
       </div>
-    </div>
-      </p>
       <a href="{{ route('admin.users.create') }}"  >
-        <button type="button" class="btn btn-primary btn-round">Dodaj</button>
+        <button type="button" class="btn btn-primary btn-round">Dodaj novog usera</button>
       </a>
+    </div>
 
 @if($mesecSettings === 1){
-
-  <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+  <div class="col-md-12 t-padding ">
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+  </div>
 }
 @endif
 @if($godinaSettings === 1){
+  <div class="col-md-12 t-padding">
+
   <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+  </div>
+
 }
 @endif
 
