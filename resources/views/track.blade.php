@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 offset-lg-1 offset-sm-0">
                 <div class="card">
-                    <div class="card-header">Trenutno statnje</div>
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Trenutno stanje</h4></div>
 
                     <div class="card-body">
-                        <table class="table table-responsive table-striped ">
-                        <thead>
+                        <div class="table-responsive">
+                        <table class="table">
+                        <thead class="text-primary">
                         <tr>
                             <th scope="col">Broj posiljke</th>
                             <th scope="col">Status</th>
@@ -31,20 +32,20 @@
                         <tbody>
                         @foreach($shipmentstemp as $shipment)
                             <tr>
-                                <th scope="col">{{ $shipment->shipment_number }}</th>
-                                <th scope="col">{{ $shipment->status }}</th>
-                                <th scope="col">{{ $shipment->method_payment }}</th>
-                                <th scope="col">{{ $shipment->mass }}</th>
-                                <th scope="col">{{ $shipment->category }}</th>
-                                <th scope="col">{{ $shipment->who_pay }}</th>
-                                <th scope="col">{{ $shipment->name }}</th>
-                                <th scope="col">{{ $shipment->surname }}</th>
-                                <th scope="col">{{ $shipment->address }}</th>
-                                <th scope="col">{{ $shipment->email }}</th>
-                                <th scope="col">{{ $shipment->city }}</th>
-                                <th scope="col">{{ $shipment->number }}</th>
-                                <th scope="col">{{ $shipment->shipment_price }}</th>
-                                <th scope="col">{{ $shipment->transport_price }}</th>
+                                <td scope="col">{{ $shipment->shipment_number }}</td>
+                                <td scope="col">{{ $shipment->status }}</td>
+                                <td scope="col">{{ $shipment->method_payment }}</td>
+                                <td scope="col">{{ $shipment->mass }}</td>
+                                <td scope="col">{{ $shipment->category }}</td>
+                                <td scope="col">{{ $shipment->who_pay }}</td>
+                                <td scope="col">{{ $shipment->name }}</td>
+                                <td scope="col">{{ $shipment->surname }}</td>
+                                <td scope="col">{{ $shipment->address }}</td>
+                                <td scope="col">{{ $shipment->email }}</td>
+                                <td scope="col">{{ $shipment->city }}</td>
+                                <td scope="col">{{ $shipment->number }}</td>
+                                <td scope="col">{{ $shipment->shipment_price }}</td>
+                                <td scope="col">{{ $shipment->transport_price }}</td>
 
 
 
@@ -55,60 +56,46 @@
                     </div>
                 </div>
             </div>
-        </div><div class="row justify-content-center">
-            <div class="col-md-12">
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-lg-1 offset-sm-0">
                 <div class="card">
-                    <div class="card-header">Istorija</div>
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Istorija</h4></div>
 
                     <div class="card-body">
-                        <table class="table table-responsive table-striped ">
-                        <thead>
-                        <tr>
-                            <th scope="col">Broj posiljke</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Nacin placanja</th>
-                            <th scope="col">Masa</th>
-                            <th scope="col">Kategorija</th>
-                            <th scope="col">Ko placa</th>
-                            <th scope="col">Ime primalaca</th>
-                            <th scope="col">Prezime </th>
-                            <th scope="col">Adresa</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Grad</th>
-                            <th scope="col">Broj telefona</th>
-                            <th scope="col">Cena posiljke</th>
-                            <th scope="col">Cena usluge</th>
-                            <th scope="col">Datum</th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($shipments as $shipment)
-                            <tr>
-                                <th scope="col">{{ $shipment->shipment_number }}</th>
-                                <th scope="col">{{ $shipment->status }}</th>
-                                <th scope="col">{{ $shipment->method_payment }}</th>
-                                <th scope="col">{{ $shipment->mass }}</th>
-                                <th scope="col">{{ $shipment->category }}</th>
-                                <th scope="col">{{ $shipment->who_pay }}</th>
-                                <th scope="col">{{ $shipment->name }}</th>
-                                <th scope="col">{{ $shipment->surname }}</th>
-                                <th scope="col">{{ $shipment->address }}</th>
-                                <th scope="col">{{ $shipment->email }}</th>
-                                <th scope="col">{{ $shipment->city }}</th>
-                                <th scope="col">{{ $shipment->number }}</th>
-                                <th scope="col">{{ $shipment->shipment_price }}</th>
-                                <th scope="col">{{ $shipment->transport_price }}</th>
-                                <th scope="col">{{ $shipment->created_at }}</th>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                <tr>
+                                    <th scope="col">Broj posiljke</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Vreme</th>
 
 
-                            </tr>
-                        @endforeach
-                        </tbody>
-                        </table>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($shipments as $shipment)
+                                    <tr>
+                                        <td scope="col">{{ $shipment->shipment_number }}</td>
+                                        <td scope="col">{{ $shipment->status }}</td>
+                                        <td scope="col">{{ $shipment->created_at }}</td>
+
+
+
+
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+
 @endsection
