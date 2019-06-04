@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateShipmentTempsUserTable extends Migration
+class CreateShipmentTempUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateShipmentTempsUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipment_temps_user', function (Blueprint $table) {
+        Schema::create('shipment_temp_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('shipment_temps_id')->unsigned();
+            $table->integer('shipment_temp_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateShipmentTempsUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipment_temps_user');
+        Schema::dropIfExists('shipment_temp_user');
     }
 }
