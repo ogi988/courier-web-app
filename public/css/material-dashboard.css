@@ -18845,6 +18845,9 @@ Copyright (c) 2015 Daniel Eden
 .heading{
   margin:auto;
 }
+.crna-slova{
+  color: black;
+}
 
 /*Checkboxes styles*/
 input[type="checkbox"] { display: none; }
