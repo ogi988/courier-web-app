@@ -19,7 +19,7 @@ class PostavkeController extends Controller
     {
 
         
-        return view('admin.postavke')->with('adminsettings',AdminSettings::all());
+        return view('admin.postavke')->with('adminsettings',AdminSettings::find(1));
     }
 
     /**

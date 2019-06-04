@@ -18,11 +18,11 @@ class CreateShipmentTempsTable extends Migration
     Schema::create('shipment_temps', function (Blueprint $table) {
         $table->bigIncrements('id');
         $table->string('shipment_number');
-        $table->string('status');//0-nije pokupljen,1-u magacinu,2-prevoz na adresu,3-isporuceno,4-odbijeno
+        $table->integer('status');//0-nije pokupljen,1-u magacinu,2-prevoz na adresu,3-isporuceno,4-odbijeno
         $table->string('method_payment');//1-pouzecu,2-racun
         $table->string('mass');
         $table->string('category');
-        $table->string('who_pay');//1-posiljalac,2-primalac
+        $table->string('who_pay');
         $table->string('name');
         $table->string('surname');
         $table->string('address');

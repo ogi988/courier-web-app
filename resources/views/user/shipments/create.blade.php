@@ -16,10 +16,10 @@
                             </div>
                             <div class="form-check align-content-center">
 
-                                <input class="form-check-input" id="1" type="radio" name="type" value="1">
+                                <input class="form-check-input" id="1" type="radio" name="type" value="Fizicko lice">
                                 <label for="1" class="form-check-label">Fizicko lice</label><br>
 
-                                <input class="form-check-input" id="2" type="radio" name="type" value="2">
+                                <input class="form-check-input" id="2" type="radio" name="type" value="Pravno lice">
                                 <label for="2" class="form-check-label">Pravno lice</label><br>
                                     @error('type')
                                     <span class="invalid-feedback" role="alert">
@@ -195,10 +195,10 @@
 
                             <div class="form-check align-content-center">
 
-                                <input class="form-check-input" id="who" type="radio" name="who_pay" value="1">
+                                <input class="form-check-input" id="who" type="radio" name="who_pay" value="Posiljalac">
                                 <label for="who" class="form-check-label">Plaća pošiljalac</label><br>
 
-                                <input class="form-check-input" id="who" type="radio" name="who_pay" value="2">
+                                <input class="form-check-input" id="who" type="radio" name="who_pay" value="Primalac">
                                 <label for="who" class="form-check-label">Plaća primalac</label><br>
                                 
 
@@ -227,7 +227,7 @@
             </div>
         </div>
     </div>
-
+    <script src="{{asset('js/jquery-1.11.3.min.js')}}"></script>
 <script>
     $(document).ready(function(){
         $("select.mass").change(function(){

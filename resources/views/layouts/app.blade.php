@@ -32,14 +32,9 @@
 <body>   
     
      
-    <!-- <center>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-    </button>
-  </center> -->
+
+
+
 
 
 <div class="row">
@@ -49,11 +44,17 @@
 
 
         @if(isset(Auth::user()->name))
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+                <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
 
             <div class="sidebar-wrapper">
                 <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
                     <div class="logo">
-                        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                        <a href="#" class="simple-text logo-normal">
                             Kurirska sluzba
                         </a>
                     </div>
@@ -135,45 +136,7 @@
 
 
 
-<script>
-        $(document).ready(function(){
-            $("select.mass").change(function(){
-                var tezina = $(this).children("option:selected").val();
-                switch(tezina){
-                    case '0.5':
-                        $("#cena").text("270 dinara");
-                        break;
-                    case '1':
-                        $("#cena").text("320 dinara");
-                        break;
-                    case '2':
-                        $("#cena").text("390 dinara");
-                        break;
-                    case '5':
-                        $("#cena").text("500 dinara");
-                        break;
-                    case '10':
-                        $("#cena").text("650 dinara");
-                        break;
-                    case '15':
-                        $("#cena").text("800 dinara");
-                        break;
-                    case '20':
-                        $("#cena").text("920 dinara");
-                        break;
-                    case '30':
-                        $("#cena").text("1100 dinara");
-                        break;
 
-                    case '50':
-                        $("#cena").text("1500 dinara");
-                        break;
-
-
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>

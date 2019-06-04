@@ -27,10 +27,13 @@
                         <form action = "{{route('admin.postavke.update',['postavke' => 1])}}" method = "POST">
                             @csrf
                             {{ method_field('PUT') }}
-                            <input type="checkbox" id="mesec" name="mesec" value="1">
+                            <input type="checkbox" id="mesec" name="mesec" value="1"
+                                    @if($adminsettings->prikaziMesece == 1){{ 'checked'}}@endif
+                            >
                             <label for="mesec">Prikazi tabelu porucenih posiljaka za ovaj mesec</label>
 
-                            <input type="checkbox" id="godina" name="godina" value="1">
+                            <input type="checkbox" id="godina" name="godina" value="1"
+                            @if($adminsettings->prikaziGodine == 1){{ 'checked'}}@endif>
                             <label for="godina">Prikazi tabelu porucenih posiljaka za ovu godinu </label>
 
                             <button type="submit" class="btn btn-primary btn-sm">Sacuvaj</button>

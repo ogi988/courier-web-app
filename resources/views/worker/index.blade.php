@@ -120,6 +120,7 @@
                                     <th>{{ $posiljka->shipment_price }}</th>
                                     <th>{{ $posiljka->transport_price }}</th>
                                     <th>{{ $posiljka->type }}</th>
+                                    <th><?php echo DNS1D::getBarcodeHTML('2222', "EAN13"); ?></th>
                                     
                                 </tr>
                             @endforeach

@@ -11,11 +11,11 @@
                         <form class="form-group" action="{{ route('admin.users.update',['user' => $user->id]) }}" method="POST">
                             @csrf
                             {{ method_field('PUT') }}
-                            <div class="form-check">
+                            <div class="">
                                 @foreach($roles as $role)
-                                <input class="form-check-input" id="check" type="checkbox" name="roles[]" value="{{ $role->id }}"
-                                       {{ $user->hasAnyRole($role->name)?'checked':''}}>
-                                <label for="check" class="form-check-label">{{ $role->name }}</label><br>
+                                    <input id="check{{($role->name)}}" type="checkbox" name="roles[]" value="{{ $role->id }}"
+                                            {{ $user->hasAnyRole($role->name)?'checked':''}}>
+                                    <label for="check{{($role->name)}}" >{{ $role->name }}</label><br>
                                 @endforeach
                             </div>
 
