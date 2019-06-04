@@ -88,6 +88,7 @@ class ShipmentController extends Controller
         $shipmentTemp->save();
 
         $shipment->users()->attach($user);
+        $shipmentTemp->users()->attach($user);
 
         return redirect('user/shipments');
     }

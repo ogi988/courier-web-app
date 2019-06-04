@@ -198,8 +198,8 @@
                                 <input class="form-check-input" id="who" type="radio" name="who_pay" value="Posiljalac">
                                 <label for="who" class="form-check-label">Plaća pošiljalac</label><br>
 
-                                <input class="form-check-input" id="who" type="radio" name="who_pay" value="Primalac">
-                                <label for="who" class="form-check-label">Plaća primalac</label><br>
+                                <input class="form-check-input" id="who1" type="radio" name="who_pay" value="Primalac">
+                                <label for="who1" class="form-check-label">Plaća primalac</label><br>
                                 
 
 

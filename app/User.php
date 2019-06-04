@@ -51,7 +51,7 @@ class User extends Authenticatable
     public function shipments(){
         return $this->belongsToMany('App\Shipment');
     }
-    public function shipmentstemp(){
+    public function shipmentstemps(){
         return $this->belongsToMany('App\ShipmentTemp');
     }
     
