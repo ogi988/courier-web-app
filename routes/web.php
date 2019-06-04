@@ -38,6 +38,8 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->n
 Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])->name('worker.')->group(function (){
     Route::resource('/shipments', 'ShipmentController');
     Route::post('/shipments/zaduzi', 'ShipmentController@zaduzi')->name('shipments.zaduzi');
+    Route::post('/shipments/magacin', 'ShipmentController@magacin')->name('shipments.magacin');
+    Route::post('/shipments/krajnje', 'ShipmentController@krajnje')->name('shipments.krajnje');
     Route::get('/barcode', 'ShipmentController@barcode')->name('barcode');
     Route::post('/ajax', 'ShipmentController@ajaxRequestPost')->name('ajax');
     Route::resource('/vehicles','VehicleController');

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Worker;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Vehicle;
 use App\Shipment;
 use App\ShipmentTemp;
 use Illuminate\Support\Facades\Auth;
@@ -32,14 +33,15 @@ class ShipmentController extends Controller
 
         $id = Auth::id();
         $sve = ShipmentTemp::where('status', 0)->get();
+        $posiljkeUMagacinu = ShipmentTemp::where('status', 1)->get();
         $more = DB::table('shipment_temp_user')->where('user_id', $id)->pluck('shipment_temp_id');
         if($more->isEmpty()){
             
-            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more]);            
+            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $more, 'posiljkeUMagacinu'=>$posiljkeUMagacinu]);            
             
         } else{            
-            $moremore = ShipmentTemp::whereIn('id', $more)->get();            
-            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $moremore]);
+            $moremore = ShipmentTemp::whereIn('id', $more)->where('status','>', 1)->get();            
+            return view('worker.index')->with(['shipments' => $sve, 'mojeposiljke' => $moremore, 'posiljkeUMagacinu'=>$posiljkeUMagacinu]);
         }
 
         
@@ -63,50 +65,7 @@ class ShipmentController extends Controller
      */
     public function store(Request $request)
     {
-        // $shipment = Shipment::find($id);
-        // $user->shipments()->sync($request->shipments);
-
-        //$id = $request->p;
-        //$s = Shipment::find($id);
-        //dd($s);
-        // $shipment = new Shipment;
         
-        // $shipment_number = $request->shipment_number;
-        // $status = 1;
-        // $method_payment = $request->method_payment;
-        // $mass = $request->mass;
-        // $category = $request->category;
-        // $who_pay = $request->who_pay;
-        // $name = $request->name;
-        // $surname = $request->surname;
-        // $address = $request->address;
-        // $email = $request->email;
-        // $city = $request->city;
-        // $number = $request->number;
-        // $shipment_price = $request->shipment_price;
-        // $transport_price = $request->transport_price;
-        // $type = $request->type;
-
-        // $shipment->shipment_number = $shipment_number;
-        // $shipment->status = $status;
-        // $shipment->method_payment = $method_payment;
-        // $shipment->mass = $mass;
-        // $shipment->category = $category;
-        // $shipment->who_pay = $who_pay;
-        // $shipment->name = $name;
-        // $shipment->address = $address;
-        // $shipment->email = $email;
-        // $shipment->city = $city;
-        // $shipment->number = $number;
-        // $shipment->shipment_price = $shipment_price;
-        // $shipment->transport_price = $transport_price;
-        // $shipment->type = $type;
-
-        //$shipment->save();
-
-
-
-        //return view('worker.index')->with('shipments',Shipment::all());
     }
 
 
@@ -161,38 +120,46 @@ class ShipmentController extends Controller
     }
     public function zaduzi(Request $request)
     {
+        
         $id = $request->idid;
         $s = Shipment::find($id);
-
+        
         $userid = Auth::id();
         $user = User::where('id', $userid)->first();
         
-        $shipment_temp = ShipmentTemp::find($id);
+        $vozilo = Vehicle::where('user_id', $userid)->get();
+        if($vozilo->isNotEmpty()){
 
-        $shipment = new Shipment;
-        $shipment->shipment_number = $s->shipment_number;
-        $shipment->status = 1;
-        $shipment->method_payment = $s->method_payment;
-        $shipment->mass = $s->mass;
-        $shipment->category = $s->category;
-        $shipment->who_pay = $s->who_pay;
-        $shipment->name = $s->name;
-        $shipment->surname = $s->surname;
-        $shipment->address = $s->address;
-        $shipment->email = $s->email;
-        $shipment->city = $s->city;
-        $shipment->number = $s->number;
-        $shipment->shipment_price = $s->shipment_price;
-        $shipment->transport_price = $s->transport_price;
-        $shipment->type = $s->type;
-
-        $shipment_temp->status = 1;
-        $shipment_temp->save();
-
-        $shipment->save();
-        $shipment->users()->attach($user);
-        $shipment_temp->users()->attach($user);
-        return redirect('worker/shipments');
+            $shipment_temp = ShipmentTemp::find($id);
+    
+            $shipment = new Shipment;
+            $shipment->shipment_number = $s->shipment_number;
+            $shipment->status = 1;
+            $shipment->method_payment = $s->method_payment;
+            $shipment->mass = $s->mass;
+            $shipment->category = $s->category;
+            $shipment->who_pay = $s->who_pay;
+            $shipment->name = $s->name;
+            $shipment->surname = $s->surname;
+            $shipment->address = $s->address;
+            $shipment->email = $s->email;
+            $shipment->city = $s->city;
+            $shipment->number = $s->number;
+            $shipment->shipment_price = $s->shipment_price;
+            $shipment->transport_price = $s->transport_price;
+            $shipment->type = $s->type;
+    
+            $shipment_temp->status = 1;
+            $shipment_temp->save();
+    
+            $shipment->save();
+            $shipment->users()->attach($user);
+            $shipment_temp->users()->attach($user);
+            return redirect('worker/shipments');
+        } else{
+            return redirect('worker/shipments')->with('message', 'Prvo zaduzite vozilo!');
+            
+        }
     }
     public function barcode()
     {
@@ -241,6 +208,127 @@ class ShipmentController extends Controller
 
         return response()->json(['success'=>$message]);
 
+
+
+    }
+    public function magacin(Request $request)
+    {
+        $userid = Auth::id();
+        $user = User::where('id', $userid)->first();
+
+        $id = $request->idmagacin;
+        $s = Shipment::find($id);
+        $shipment_temp = ShipmentTemp::find($id);
+
+        $vozilo = Vehicle::where('user_id', $userid)->get();
+        if($vozilo->isNotEmpty()){
+            
+            $shipment = new Shipment;
+            $shipment->shipment_number = $s->shipment_number;
+            $shipment->status = 2;
+            $shipment->method_payment = $s->method_payment;
+            $shipment->mass = $s->mass;
+            $shipment->category = $s->category;
+            $shipment->who_pay = $s->who_pay;
+            $shipment->name = $s->name;
+            $shipment->surname = $s->surname;
+            $shipment->address = $s->address;
+            $shipment->email = $s->email;
+            $shipment->city = $s->city;
+            $shipment->number = $s->number;
+            $shipment->shipment_price = $s->shipment_price;
+            $shipment->transport_price = $s->transport_price;
+            $shipment->type = $s->type;
+    
+            $shipment->save();
+            $shipment->users()->attach($user);
+    
+            $shipment_temp->status = 2;
+            $shipment_temp->save();
+            $shipment_temp->users()->attach($user); 
+    
+    
+            return redirect('worker/shipments');
+        } else{
+            return redirect('worker/shipments')->with('message', 'Prvo zaduzite vozilo!');
+        }
+
+
+
+    }
+
+    public function krajnje(Request $request)
+    {
+
+        $userid = Auth::id();
+        $user = User::where('id', $userid)->first();
+
+        $id_krajnji = $request->idmoja;
+        $s_krajnji = Shipment::find($id_krajnji);
+        $shipment_temp_krajnji = ShipmentTemp::find($id_krajnji);
+
+
+        $vozilo = Vehicle::where('user_id', $userid)->get();
+        if($vozilo->isNotEmpty()){
+
+            if ($request->has('isporuceno')) {            
+                
+                $shipment = new Shipment;
+                $shipment->shipment_number = $s_krajnji->shipment_number;
+                $shipment->status = 4;
+                $shipment->method_payment = $s_krajnji->method_payment;
+                $shipment->mass = $s_krajnji->mass;
+                $shipment->category = $s_krajnji->category;
+                $shipment->who_pay = $s_krajnji->who_pay;
+                $shipment->name = $s_krajnji->name;
+                $shipment->surname = $s_krajnji->surname;
+                $shipment->address = $s_krajnji->address;
+                $shipment->email = $s_krajnji->email;
+                $shipment->city = $s_krajnji->city;
+                $shipment->number = $s_krajnji->number;
+                $shipment->shipment_price = $s_krajnji->shipment_price;
+                $shipment->transport_price = $s_krajnji->transport_price;
+                $shipment->type = $s_krajnji->type;
+    
+                $shipment->save();
+                $shipment->users()->attach($user);
+    
+                $shipment_temp_krajnji->status = 4;
+                $shipment_temp_krajnji->save();
+                $shipment_temp_krajnji->users()->attach($user);
+             }
+            if ($request->has('odbijeno')) {
+                
+                $shipment = new Shipment;
+                $shipment->shipment_number = $s_krajnji->shipment_number;
+                $shipment->status = 1;
+                $shipment->method_payment = $s_krajnji->method_payment;
+                $shipment->mass = $s_krajnji->mass;
+                $shipment->category = $s_krajnji->category;
+                $shipment->who_pay = $s_krajnji->who_pay;
+                $shipment->name = $s_krajnji->name;
+                $shipment->surname = $s_krajnji->surname;
+                $shipment->address = $s_krajnji->address;
+                $shipment->email = $s_krajnji->email;
+                $shipment->city = $s_krajnji->city;
+                $shipment->number = $s_krajnji->number;
+                $shipment->shipment_price = $s_krajnji->shipment_price;
+                $shipment->transport_price = $s_krajnji->transport_price;
+                $shipment->type = $s_krajnji->type;
+    
+                $shipment->save();
+                $shipment->users()->attach($user);
+    
+                $shipment_temp_krajnji->status = 1;
+                $shipment_temp_krajnji->save();
+                $shipment_temp_krajnji->users()->attach($user);
+             }
+    
+    
+            return redirect('worker/shipments');
+        } else{
+            return redirect('worker/shipments')->with('message', 'Prvo zaduzite vozilo!');
+        }
 
 
     }
