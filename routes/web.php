@@ -44,6 +44,7 @@ Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])
     Route::post('/ajax', 'ShipmentController@ajaxRequestPost')->name('ajax');
     Route::resource('/vehicles','VehicleController');
     Route::post('/vehicles/razduzi', 'VehicleController@razduzi')->name('vehicles.razduzi');
+    Route::get('/map', 'ShipmentController@map')->name('map');
 
 
 });

@@ -332,5 +332,9 @@ class ShipmentController extends Controller
 
 
     }
+    public function map()
+    {
+        return view('worker.map');
+    }
     
 }

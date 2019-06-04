@@ -90,5 +90,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="quagga" level="application" />
+    <orderEntry type="library" name="mapbox-gl" level="application" />
+    <orderEntry type="library" name="mapbox-gl-directions" level="application" />
   </component>
 </module>
