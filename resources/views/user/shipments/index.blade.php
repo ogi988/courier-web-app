@@ -3,6 +3,7 @@
 @section('content')
 
     <div class="row">
+    @if ($prazno == 0)
         <div class="col-md-12 ">
 
             <div class="card">
@@ -11,7 +12,7 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table crna-slova">
                             <thead class="text-primary">
                             <tr>
                                 <th scope="col">Broj posiljke</th>
@@ -58,13 +59,20 @@
                     </div>
                 </div>
             </div>
+            <h4 class="h4-responsive" style="color:black">Napravite novu posiljku klikom na dugme</h4>
+        <a href="{{ route('user.shipments.create') }}"  >
+            <button type="button" class=" btn btn-primary">Pozovi</button>
+        </a>
         </div>
 
+    @endif
+    @if($prazno == 1)
     </div>
 
-    <h4 class="h4-responsive" style="color:black">Pozovi kurira na adresu</h4>
+    <h4 class="h4-responsive" style="color:black">Nemate posiljaka - napravite novu klikom na dugme</h4>
     <a href="{{ route('user.shipments.create') }}"  >
         <button type="button" class=" btn btn-primary">Pozovi</button>
     </a>
+    @endif
     </div>
 @endsection

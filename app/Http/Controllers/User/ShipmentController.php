@@ -23,7 +23,25 @@ class ShipmentController extends Controller
      */
     public function index()
     {
-        return view('user.shipments.index')->with('shipments',ShipmentTemp::all());
+        $id = Auth::id();
+
+        $pronadji = DB::table('shipment_temp_user')->where('user_id', $id)->pluck('shipment_temp_id');
+        $posiljke = ShipmentTemp::whereIn('id', $pronadji)->get();
+
+
+
+        if($posiljke->isEmpty()){
+            echo 'prazno je';
+            $prazno = 1;
+            return view('user.shipments.index')->with(['shipments'=>$posiljke, 'prazno' => $prazno]);
+
+        }else{
+            echo 'nije prazno';
+
+            $prazno = 0;
+            return view('user.shipments.index')->with(['shipments'=>$posiljke, 'prazno' => $prazno]);
+        }
+
     }
 
     /**
@@ -47,7 +65,7 @@ class ShipmentController extends Controller
         $shipment = new Shipment;
         $shipmentTemp = new ShipmentTemp;
         $random = Str::random(8);
-        $user = User::find(Auth::id())->first();
+        $user = Auth::id();
 
         $shipment->shipment_number = $random;
         $shipment->status = 0;
