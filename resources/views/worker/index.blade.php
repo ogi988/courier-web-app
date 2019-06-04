@@ -2,32 +2,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class="row">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Dostupne posiljke</div>
+                    <div class="card-header card-header-primary">                    
+                    <h4 class="card-title ">Dostupne posiljke</h4>
+                    </div>
 
-                    <div class="card-body-lg">
-                    <table class="table table-responsive table-striped ">
-                    <thead>
+                    <div class="card-body">
+                        <div class="table-responsive">
+
+                    <table class="table">
+                    <thead class=" text-primary">
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Broj posiljke</th>
-                        <th scope="col">Status posiljke</th>
-                        <th scope="col">Metoda placanja</th>
-                        <th scope="col">Masa</th>
-                        <th scope="col">Kategorija</th>
-                        <th scope="col">Ko placa</th>
-                        <th scope="col">Ime primaoca</th>
-                        <th scope="col">Prezime primaoca</th>
-                        <th scope="col">Adresa primaoca</th>
-                        <th scope="col">Email primaoca</th>
-                        <th scope="col">Grad primaoca</th>
-                        <th scope="col">Broj primaoca</th>
-                        <th scope="col">Cena posiljke</th>
-                        <th scope="col">Cena transporta</th>
-                        <th scope="col">Tip</th>
+                        <th>id</th>
+                        <th>Broj posiljke</th>
+                        <th>Status posiljke</th>
+                        <th>Metoda placanja</th>
+                        <th>Masa</th>
+                        <th>Kategorija</th>
+                        <th>Ko placa</th>
+                        <th>Ime primaoca</th>
+                        <th>Prezime primaoca</th>
+                        <th>Adresa primaoca</th>
+                        <th>Email primaoca</th>
+                        <th>Grad primaoca</th>
+                        <th>Broj primaoca</th>
+                        <th>Cena posiljke</th>
+                        <th>Cena transporta</th>
+                        <th>Tip</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,67 +38,69 @@
                             <tr>
                                 
 
-                                <th>{{ $shipment->id}}</th>
-                                <th>{{ $shipment->shipment_number }}</th>
-                                <th>{{ $shipment->status }}</th>
-                                <th>{{ $shipment->method_payment }}</th>
-                                <th>{{ $shipment->mass }}</th>
-                                <th>{{ $shipment->category }}</th>
-                                <th>{{ $shipment->who_pay }}</th>
-                                <th>{{ $shipment->name }}</th>
-                                <th>{{ $shipment->surname }}</th>
-                                <th>{{ $shipment->address }}</th>
-                                <th>{{ $shipment->email }}</th>
-                                <th>{{ $shipment->city }}</th>
-                                <th>{{ $shipment->number }}</th>
-                                <th>{{ $shipment->shipment_price }}</th>
-                                <th>{{ $shipment->transport_price }}</th>
-                                <th>{{ $shipment->type }}</th>
+                                <td>{{ $shipment->id}}</td>
+                                <td>{{ $shipment->shipment_number }}</td>
+                                <td>{{ $shipment->status }}</td>
+                                <td>{{ $shipment->method_payment }}</td>
+                                <td>{{ $shipment->mass }}</td>
+                                <td>{{ $shipment->category }}</td>
+                                <td>{{ $shipment->who_pay }}</td>
+                                <td>{{ $shipment->name }}</td>
+                                <td>{{ $shipment->surname }}</td>
+                                <td>{{ $shipment->address }}</td>
+                                <td>{{ $shipment->email }}</td>
+                                <td>{{ $shipment->city }}</td>
+                                <td>{{ $shipment->number }}</td>
+                                <td>{{ $shipment->shipment_price }}</td>
+                                <td>{{ $shipment->transport_price }}</td>
+                                <td>{{ $shipment->type }}</td>
 
 
-                                <th>
+                                <td>
                                 <form method='POST' action = "{{route('worker.shipments.zaduzi')}}">
                                     @csrf
                                     <input type="text" name="idid" value="{{ $shipment->id }}" hidden>
                                     <input type="text" name="shipment_number" value="{{ $shipment->shipment_number }}" hidden>
-                                    <button type="submit" class="btn btn-primary btn-sm">Zaaaduzi!</button>
+                                    <button type="submit" class="btn btn-primary btn-sm">Zaduzi!</button>
                                     
 
                                 </form>
-                                </th>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
                         </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Vase posiljke</div>
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Vase posiljke</h4>
+                    </div>
 
-                    <div class="card-body-lg">
-                    <table class="table table-responsive table-striped ">
-                    <thead>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                    <table class="table ">
+                    <thead class=" text-primary">
                     <tr>
-                        <th scope="col">id</th>
-                        <th scope="col">Broj posiljke</th>
-                        <th scope="col">Status posiljke</th>
-                        <th scope="col">Metoda placanja</th>
-                        <th scope="col">Masa</th>
-                        <th scope="col">Kategorija</th>
-                        <th scope="col">Ko placa</th>
-                        <th scope="col">Ime primaoca</th>
-                        <th scope="col">Prezime primaoca</th>
-                        <th scope="col">Adresa primaoca</th>
-                        <th scope="col">Email primaoca</th>
-                        <th scope="col">Grad primaoca</th>
-                        <th scope="col">Broj primaoca</th>
-                        <th scope="col">Cena posiljke</th>
-                        <th scope="col">Cena transporta</th>
-                        <th scope="col">Tip</th>
+                        <th>id</th>
+                        <th>Broj posiljke</th>
+                        <th>Status posiljke</th>
+                        <th>Metoda placanja</th>
+                        <th>Masa</th>
+                        <th>Kategorija</th>
+                        <th>Ko placa</th>
+                        <th>Ime primaoca</th>
+                        <th>Prezime primaoca</th>
+                        <th>Adresa primaoca</th>
+                        <th>Email primaoca</th>
+                        <th>Grad primaoca</th>
+                        <th>Broj primaoca</th>
+                        <th>Cena posiljke</th>
+                        <th>Cena transporta</th>
+                        <th>Tip</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -127,8 +132,8 @@
                         
                         </tbody>
                         </table>
+                        </div>
 
-                    </div>
                 </div>
                 <a href="{{route('worker.barcode')}}">
                 <button type="button" class="btn btn-primary" id="start" >
