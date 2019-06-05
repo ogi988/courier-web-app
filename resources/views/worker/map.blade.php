@@ -17,6 +17,7 @@
             top: 0;
             bottom: 0;
             width: 100%;
+            height: 500px;
         }
     </style>
 </head>
@@ -30,7 +31,7 @@
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v10',
-        center: [20.459790,44.815525], // starting position
+        center: [20.459790,44.815525],
         zoom: 13
 
     });
@@ -42,36 +43,154 @@
     function getRoute() {
         var start = [20.459872,44.815277];
         var end = [20.490145,44.795289];
-        var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/driving/'
-            + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] +
-            '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
-        //var adresa = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+
-           // ovde ide adresa format brulice ulica grad drzava +'.json?&access_token=' + mapboxgl.accessToken;
 
-        $.ajax({
-            method: 'GET',
-            url: directionsRequest,
-        }).done(function(data){
-            var route = data.trips[0].geometry;
-            map.addLayer({
-                'id': 'route',
-                'type': 'line',
-                'source': {
-                    'type': 'geojson',
-                'data': {
-                        'type': 'Feature',
-                        'geometry': route
+
+        var i = 0;
+        var adrese = {!! json_encode($adrese) !!};
+        var duzina = adrese.length;
+        var celaAdresa = [];
+        var kordinate = [];
+        for(i=0;i<duzina;i++){
+            celaAdresa.push(adrese[i]['address']+' ' +adrese[i]['city'])
+        }
+        console.log(celaAdresa);
+        for(i=0;i<duzina;i++) {
+
+            var locationRequest = "https://us1.locationiq.com/v1/search.php?key=3faa509826caec&q="+celaAdresa[i]+"&format=json"
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "dataType": "json",
+                "url": locationRequest,
+                "method": "GET"
+            }
+
+            $.ajax(settings).done(ajaxData);
+        }
+        function ajaxData(data) {
+            //console.log(data[0]['lat']);
+            //console.log(data[0]['lon']);
+            kordinate.push(data[0]['lon']+','+data[0]['lat']);
+            var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/driving/'
+                + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + ';' + kordinate[0] + ';' + kordinate[1]+
+                '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
+
+            $.ajax({
+                method: 'GET',
+                url: directionsRequest,
+            }).done(function(data){
+                var route = data.trips[0].geometry;
+                map.addLayer({
+                    id: 'start',
+                    type: 'circle',
+                    source: {
+                    type: 'geojson',
+                    data: {
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: start
+                        }
                     }
-                }
+                },
+                    paint: {
+                        'circle-radius': 20,
+                        'circle-color': 'white',
+                        'circle-stroke-color': '#3887be',
+                        'circle-stroke-width': 3
+                    }
+                });
+                map.addLayer({
+                    id: 'end',
+                    type: 'circle',
+                    source: {
+                        type: 'geojson',
+                        data: {
+                            type: 'Feature',
+                            geometry: {
+                                type: 'Point',
+                                coordinates: end
+                            }
+                        }
+                    },
+                    paint: {
+                        'circle-radius': 10,
+                        'circle-color': 'black',
+                        'circle-stroke-color': '#3887be',
+                        'circle-stroke-width': 3
+                    }
+                });
+
+
+                map.addLayer({
+                    id: 'route',
+                    type: 'line',
+                    source: {
+                        type: 'geojson',
+                        data: {
+                            type: 'Feature',
+                            geometry: route
+                        }
+                    },
+                    layout: {
+                        'line-join': 'round',
+                        'line-cap': 'round'
+                    },
+                    paint: {
+                        'line-color': '#3887be',
+                        'line-width': 5,
+                        'line-opacity': 0.75
+                    }
+                });
+                map.addLayer({
+                    id: 'routearrows',
+                    type: 'symbol',
+                    source: 'route',
+                    layout: {
+                        'symbol-placement': 'line',
+                        'text-field': '▶',
+                        'text-size': [
+                            "interpolate",
+                            ["linear"],
+                            ["zoom"],
+                            12, 24,
+                            22, 60
+                        ],
+                        'symbol-spacing': [
+                            "interpolate",
+                            ["linear"],
+                            ["zoom"],
+                            12, 30,
+                            22, 160
+                        ],
+                        'text-keep-upright': false
+                    },
+                    paint: {
+                        'text-color': '#3887be',
+                        'text-halo-color': 'hsl(55, 11%, 96%)',
+                        'text-halo-width': 3
+                    }
+                }, 'waterway-label');
             });
-        });
+
+        }
+
+
+
     }
 
 
 
 
-
-
+    // var geocodingRequest = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'+ +
+    //     '.json?&access_token=' + mapboxgl.accessToken;
+    // console.log(geocodingRequest);
+    // $.ajax({
+    //     method: 'GET',
+    //     url: geocodingRequest,
+    // }).done(function (data) {
+    //     console.log(data.coordinate);
+    // });
 </script>
 </body>
 </html>

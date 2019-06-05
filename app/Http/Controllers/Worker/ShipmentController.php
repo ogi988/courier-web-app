@@ -334,7 +334,11 @@ class ShipmentController extends Controller
     }
     public function map()
     {
-        return view('worker.map');
+        $id = Auth::id();
+        $more = DB::table('shipment_temp_user')->where('user_id', $id)->pluck('shipment_temp_id');
+        $moremore = ShipmentTemp::whereIn('id', $more)->where('status','=', 2)->get();
+
+        return view('worker.map')->with('adrese',$moremore);
     }
     
 }

@@ -92,5 +92,6 @@
     <orderEntry type="library" name="quagga" level="application" />
     <orderEntry type="library" name="mapbox-gl" level="application" />
     <orderEntry type="library" name="mapbox-gl-directions" level="application" />
+    <orderEntry type="library" name="turf" level="application" />
   </component>
 </module>
