@@ -115,7 +115,7 @@
                                 <label for="mass" class="col-md-4 col-form-label text-md-right">{{ __('Tezina Paketa') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="custom-select custom-select-lg mb-3" name="mass" id="mass" >
+                                    <select class="custom-select custom-select-lg mb-3 mass" name="mass" id="mass" >
                                         <option label="do 0.5 kg" value="0.5" >do 0.5 kg</option>
                                         <option label="do 1 kg" value="1" >do 1 kg</option>
                                         <option label="do 2 kg" value="2" >do 2 kg</option>
@@ -229,8 +229,10 @@
     </div>
     <script src="{{asset('js/jquery-1.11.3.min.js')}}"></script>
 <script>
+    console.log('ready');
     $(document).ready(function(){
-        $("select.mass").change(function(){
+
+        $("select#mass").change(function(){
             var tezina = $(this).children("option:selected").val();
             switch(tezina){
                 case '0.5':

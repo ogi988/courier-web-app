@@ -31,6 +31,7 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->n
     Route::resource('/users','UserController');
     Route::resource('/vehicles','VehicleController');
     Route::resource('/postavke','PostavkeController');
+    Route::get('/shipments','ShipmentController@index')->name('shipments.index');
 
 });
 

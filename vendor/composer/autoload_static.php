@@ -399,6 +399,7 @@ class ComposerStaticInit05d1660447428e6618204183f16ee4f8
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ShipmentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ShipmentsController.php',
         'App\\Http\\Controllers\\User\\ShipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/ShipmentController.php',
         'App\\Http\\Controllers\\Worker\\ShipmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Worker/ShipmentController.php',
         'App\\Http\\Controllers\\Worker\\VehicleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Worker/VehicleController.php',

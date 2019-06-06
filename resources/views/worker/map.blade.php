@@ -17,7 +17,6 @@
             top: 0;
             bottom: 0;
             width: 100%;
-            height: 500px;
         }
     </style>
 </head>
@@ -71,8 +70,18 @@
             //console.log(data[0]['lat']);
             //console.log(data[0]['lon']);
             kordinate.push(data[0]['lon']+','+data[0]['lat']);
+
+            ku = kordinate;
+            var str = "";
+            ku.forEach(function(entry) {
+
+                str += entry.toString() + ';' ;
+
+            });
+            var newStr = str.slice(0, -1);
+            console.log(newStr);
             var directionsRequest = 'https://api.mapbox.com/optimized-trips/v1/mapbox/driving/'
-                + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + ';' + kordinate[0] + ';' + kordinate[1]+
+                + start[0] + ',' + start[1] + ';' + end[0] + ',' + end[1] + ';' + newStr+
                 '?steps=true&geometries=geojson&access_token=' + mapboxgl.accessToken;
 
             $.ajax({
@@ -80,6 +89,7 @@
                 url: directionsRequest,
             }).done(function(data){
                 var route = data.trips[0].geometry;
+
                 map.addLayer({
                     id: 'start',
                     type: 'circle',
@@ -100,26 +110,9 @@
                         'circle-stroke-width': 3
                     }
                 });
-                map.addLayer({
-                    id: 'end',
-                    type: 'circle',
-                    source: {
-                        type: 'geojson',
-                        data: {
-                            type: 'Feature',
-                            geometry: {
-                                type: 'Point',
-                                coordinates: end
-                            }
-                        }
-                    },
-                    paint: {
-                        'circle-radius': 10,
-                        'circle-color': 'black',
-                        'circle-stroke-color': '#3887be',
-                        'circle-stroke-width': 3
-                    }
-                });
+
+
+
 
 
                 map.addLayer({

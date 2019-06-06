@@ -100,6 +100,12 @@
                                 <p>Vozila</p>
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{route('worker.map')}}">
+                                <i class="material-icons">map</i>
+                                <p>Mapa</p>
+                            </a>
+                        </li>
                         @endhasrole
                         <li class="nav-item active-pro">
 
