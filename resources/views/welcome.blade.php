@@ -68,8 +68,7 @@
                     @endauth
                 </div>
                 <div class = "top-left links">
-                    <a href = "#">O nama</a>
-                    <a href = "#">Kontakt</a>
+                    <a href = "{{'onama'}}">O nama</a>
                 </div>
             </div>
             @endif
