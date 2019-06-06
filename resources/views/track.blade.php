@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<body class = "home-background">
         <div class="row">
             <div class="col-md-12 offset-lg-1 offset-sm-0">
                 <div class="card">
@@ -46,9 +47,6 @@
                                 <td scope="col">{{ $shipment->number }}</td>
                                 <td scope="col">{{ $shipment->shipment_price }}</td>
                                 <td scope="col">{{ $shipment->transport_price }}</td>
-
-
-
                             </tr>
                         @endforeach
                         </tbody>
@@ -97,5 +95,6 @@
             </div>
         </div>
         </div>
+        </body>
 
 @endsection

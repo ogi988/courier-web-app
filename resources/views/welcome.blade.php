@@ -23,13 +23,7 @@
 
             .position-ref {
                 position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+            }            
 
             .content {
                 text-align: center;
@@ -40,13 +34,17 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #ffffff;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
+                transition: all .2s ease-in-out;
+            }
+            .links > a:hover{
+                transform: scale(1.1);
             }
 
             .m-b-md {
@@ -55,8 +53,9 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height home-background">
             @if (Route::has('login'))
+            <div class = "header">
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -68,26 +67,38 @@
                         @endif
                     @endauth
                 </div>
+                <div class = "top-left links">
+                    <a href = "#">O nama</a>
+                    <a href = "#">Kontakt</a>
+                </div>
+            </div>
             @endif
-
             <div class="content">
-
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-
-
-                                <form method="POST" action="{{ 'track' }}">
-                                    @csrf
-                                    <label for="track" class="col-10 col-form-label text-md-center">Pratite posiljku</label>
+                <div class="boxes__wrapper">
+                    <div class="boxes">
+                        <div class="boxes__heading_wrapper">
+                            <div class="boxes__heading">
+                                <div class="heading">
+                                    <span>Pratite posiljku</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="forma">
+                            <form method="POST" action="{{ 'track' }}">
+                                @csrf
+                                <div class = "text-forme">
                                     <input type="text" name="track" id="track" class="form-control" placeholder="Unesite broj posiljke">
+                                </div>
+                                <div class = "dugme-forme">
                                     <input type="submit" class="btn btn-outline-primary" value="Pronadji">
-                                </form>
-
-
-
+                                </div>
+                            </form>
+                        </div> 
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+
+    </body> 
+
 </html>
+                    
