@@ -18916,7 +18916,6 @@ input[type="checkbox"]:checked + label:before {
 .top-right{
   float: right;
   padding: 20px;
-  transition: all .2s ease-in-out; 
 }
 
 
