@@ -34,7 +34,7 @@ class ShipmentsTempSeed extends Seeder
             'type'=>1
         ]);
         $shipment_temp = ShipmentTemp::create([
-            'shipment_number' => 'broj',
+            'shipment_number' => 145744125877,
             'status'=> 0,
             'method_payment'=>1,
             'mass'=>'45kg',

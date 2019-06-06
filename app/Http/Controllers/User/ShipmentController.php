@@ -31,13 +31,10 @@ class ShipmentController extends Controller
 
 
         if($posiljke->isEmpty()){
-            echo 'prazno je';
             $prazno = 1;
             return view('user.shipments.index')->with(['shipments'=>$posiljke, 'prazno' => $prazno]);
 
         }else{
-            echo 'nije prazno';
-
             $prazno = 0;
             return view('user.shipments.index')->with(['shipments'=>$posiljke, 'prazno' => $prazno]);
         }
@@ -64,8 +61,9 @@ class ShipmentController extends Controller
     {
         $shipment = new Shipment;
         $shipmentTemp = new ShipmentTemp;
-        $random = Str::random(8);
+        $random = random_int(000000000000,999999999999);
         $user = Auth::id();
+        var_dump($random);
 
         $shipment->shipment_number = $random;
         $shipment->status = 0;

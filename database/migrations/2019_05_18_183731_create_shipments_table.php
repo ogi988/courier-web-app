@@ -15,7 +15,7 @@ class CreateShipmentsTable extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('shipment_number');
+            $table->bigInteger('shipment_number');
             $table->integer('status');//0-nije pokupljen,1-u magacinu,2-prevoz na adresu,3-isporuceno,4-odbijeno
             $table->string('method_payment');//1-pouzecu,2-racun
             $table->string('mass');

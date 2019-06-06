@@ -4,7 +4,7 @@
 
     <div class="row">
     @if ($prazno == 0)
-        <div class="col-md-12 ">
+        <div class="col-md-12 t-padding">
 
             <div class="card">
                 <div class="card-header card-header-primary">

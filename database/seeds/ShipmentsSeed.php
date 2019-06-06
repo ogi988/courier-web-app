@@ -15,7 +15,7 @@ class ShipmentsSeed extends Seeder
         Shipment::truncate();
         $user = User::where('id', '2')->first();
         $shipment = Shipment::create([
-            'shipment_number' => '8056426179730',
+            'shipment_number' => 8056426179730,
             'status'=> 0,
             'method_payment'=>1,
             'mass'=>'23kg',
@@ -32,7 +32,7 @@ class ShipmentsSeed extends Seeder
             'type'=>1
         ]);
         $shipment = Shipment::create([
-            'shipment_number' => 'broj',
+            'shipment_number' => 145744125877,
             'status'=> 0,
             'method_payment'=>1,
             'mass'=>'45kg',

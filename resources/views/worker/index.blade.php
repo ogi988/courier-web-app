@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+    <div class="row t-padding">
     @if (session('message'))
     <div class="col-md-12">
         <div class="alert alert-danger">
@@ -64,8 +64,10 @@
 
 
                                 <td>
+                                    <?php echo DNS1D::getBarcodeHTML($shipment->shipment_number, "EAN13"); ?>
                                 <form method='POST' action = "{{route('worker.shipments.zaduzi')}}">
                                     @csrf
+
                                     <input type="text" name="idid" value="{{ $shipment->id }}" hidden>
                                     <input type="text" name="shipment_number" value="{{ $shipment->shipment_number }}" hidden>
                                     <button type="submit" class="btn btn-primary btn-sm">Pokupi!</button>
@@ -133,7 +135,8 @@
                                     <th>{{ $posiljkaUMagacinu->transport_price }}</th>
                                     <th>{{ $posiljkaUMagacinu->type }}</th>
                                     <th>
-                                        <?php echo DNS1D::getBarcodeHTML('2222', "EAN13"); ?>
+                                    <?php echo DNS1D::getBarcodeHTML($posiljkaUMagacinu->shipment_number, "EAN13"); ?>
+
                                         <form method='POST' action = "{{route('worker.shipments.magacin')}}">
 
                                             @csrf
@@ -214,7 +217,7 @@
                                     <th>{{ $mojaposiljka->transport_price }}</th>
                                     <th>{{ $mojaposiljka->type }}</th>
                                     <th style="display:inline">
-                                        <?php echo DNS1D::getBarcodeHTML('2222', "EAN13"); ?>
+
                                         <form method='POST' action = "{{route('worker.shipments.krajnje')}}">
 
                                             @csrf
