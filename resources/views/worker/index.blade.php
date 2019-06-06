@@ -47,7 +47,32 @@
 
                                 <td>{{ $shipment->id}}</td>
                                 <td>{{ $shipment->shipment_number }}</td>
-                                <td>{{ $shipment->status }}</td>
+                                <td scope="col">
+                                    @switch($shipment->status)
+                                        @case(0)
+                                        <span class="text-danger">Nije pokuljen</span>
+                                        @break
+
+                                        @case(1)
+                                        <span class="text-info"> U magacinu</span>
+                                        @break
+
+                                        @case(2)
+                                        <span class="text-warning">Prevoz na adresu</span>
+                                        @break
+
+                                        @case(3)
+                                        <span class="text-success">Isporuceno</span>
+                                        @break
+
+                                        @case(5)
+                                        Odbijen
+                                        @break
+
+                                        @default
+                                        <span>Nije poznato stanje paketa</span>
+                                    @endswitch
+                                </td>
                                 <td>{{ $shipment->method_payment }}</td>
                                 <td>{{ $shipment->mass }}</td>
                                 <td>{{ $shipment->category }}</td>
@@ -120,7 +145,32 @@
 
                                     <th>{{ $posiljkaUMagacinu->id}}</th>
                                     <th>{{ $posiljkaUMagacinu->shipment_number }}</th>
-                                    <th>{{ $posiljkaUMagacinu->status }}</th>
+                                    <td scope="col">
+                                        @switch($posiljkaUMagacinu->status)
+                                            @case(0)
+                                            <span class="text-danger">Nije pokuljen</span>
+                                            @break
+
+                                            @case(1)
+                                            <span class="text-info"> U magacinu</span>
+                                            @break
+
+                                            @case(2)
+                                            <span class="text-warning">Prevoz na adresu</span>
+                                            @break
+
+                                            @case(3)
+                                            <span class="text-success">Isporuceno</span>
+                                            @break
+
+                                            @case(5)
+                                            Odbijen
+                                            @break
+
+                                            @default
+                                            <span>Nije poznato stanje paketa</span>
+                                        @endswitch
+                                    </td>
                                     <th>{{ $posiljkaUMagacinu->method_payment }}</th>
                                     <th>{{ $posiljkaUMagacinu->mass }}</th>
                                     <th>{{ $posiljkaUMagacinu->category }}</th>
@@ -202,7 +252,32 @@
 
                                     <th>{{ $mojaposiljka->id}}</th>
                                     <th>{{ $mojaposiljka->shipment_number }}</th>
-                                    <th>{{ $mojaposiljka->status }}</th>
+                                    <td scope="col">
+                                        @switch($mojaposiljka->status)
+                                            @case(0)
+                                            <span class="text-danger">Nije pokuljen</span>
+                                            @break
+
+                                            @case(1)
+                                            <span class="text-info"> U magacinu</span>
+                                            @break
+
+                                            @case(2)
+                                            <span class="text-warning">Prevoz na adresu</span>
+                                            @break
+
+                                            @case(3)
+                                            <span class="text-success">Isporuceno</span>
+                                            @break
+
+                                            @case(5)
+                                            Odbijen
+                                            @break
+
+                                            @default
+                                            <span>Nije poznato stanje paketa</span>
+                                        @endswitch
+                                    </td>
                                     <th>{{ $mojaposiljka->method_payment }}</th>
                                     <th>{{ $mojaposiljka->mass }}</th>
                                     <th>{{ $mojaposiljka->category }}</th>

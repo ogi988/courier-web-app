@@ -74,7 +74,7 @@ Route::namespace('Worker')->prefix('worker')->middleware(['auth','auth.worker'])
 
 Route::namespace('User')->prefix('user')->middleware(['auth','auth.user'])->name('user.')->group(function (){
     Route::get('/shipments','ShipmentController@index')->name('shipments.index');
-    Route::get('/shipments/create ','ShipmentController@create')->name('shipments.create');
+    Route::get('/shipments/create','ShipmentController@create')->name('shipments.create');
     Route::post('/shipments','ShipmentController@store')->name('shipments.store');
 
 

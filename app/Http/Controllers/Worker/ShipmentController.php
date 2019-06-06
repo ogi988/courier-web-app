@@ -176,7 +176,7 @@ class ShipmentController extends Controller
         $shipment_temp = ShipmentTemp::where('shipment_number', $input)->first();
 
 
-        if($shipment_temp !== null && (int)$shipment_temp->status<4 ){
+        if($shipment_temp !== null && (int)$shipment_temp->status<3 ){
             $message = 'Uspesno promenjen status paketa'.$input;
             $shipment = new Shipment;
             $shipment->shipment_number = $shipment_temp->shipment_number;
@@ -276,7 +276,7 @@ class ShipmentController extends Controller
                 
                 $shipment = new Shipment;
                 $shipment->shipment_number = $s_krajnji->shipment_number;
-                $shipment->status = 4;
+                $shipment->status = 3;
                 $shipment->method_payment = $s_krajnji->method_payment;
                 $shipment->mass = $s_krajnji->mass;
                 $shipment->category = $s_krajnji->category;
@@ -294,7 +294,7 @@ class ShipmentController extends Controller
                 $shipment->save();
                 $shipment->users()->attach($user);
     
-                $shipment_temp_krajnji->status = 4;
+                $shipment_temp_krajnji->status = 3;
                 $shipment_temp_krajnji->save();
                 $shipment_temp_krajnji->users()->attach($user);
              }

@@ -36,7 +36,32 @@
                             @foreach($shipments as $shipment)
                                 <tr>
                                     <td scope="col">{{ $shipment->shipment_number }}</td>
-                                    <td scope="col">{{ $shipment->status }}</td>
+                                    <td scope="col">
+                                        @switch($shipment->status)
+                                            @case(0)
+                                            <span class="text-danger">Nije pokuljen</span>
+                                            @break
+
+                                            @case(1)
+                                            <span class="text-info"> U magacinu</span>
+                                            @break
+
+                                            @case(2)
+                                            <span class="text-warning">Prevoz na adresu</span>
+                                            @break
+
+                                            @case(3)
+                                            <span class="text-success">Isporuceno</span>
+                                            @break
+
+                                            @case(5)
+                                            Odbijen
+                                            @break
+
+                                            @default
+                                            <span>Nije poznato stanje paketa</span>
+                                        @endswitch
+                                    </td>
                                     <td scope="col">{{ $shipment->method_payment }}</td>
                                     <td scope="col">{{ $shipment->mass }}</td>
                                     <td scope="col">{{ $shipment->category }}</td>

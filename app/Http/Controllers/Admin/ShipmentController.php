@@ -13,7 +13,7 @@ class ShipmentController extends Controller
     public function index()
     {
         $new_shipments = ShipmentTemp::where('status', 0)->get();
-        $shipments = Shipment::where('status',4)->get();
+        $shipments = Shipment::where('status',3)->get();
         return view('admin.shipments.index')->with(['shipments'=>$shipments, 'new_shipments'=>$new_shipments]);
 
     }
