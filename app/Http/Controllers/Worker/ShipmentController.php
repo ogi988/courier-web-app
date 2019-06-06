@@ -175,6 +175,7 @@ class ShipmentController extends Controller
         $input = $request->barcode;
         $shipment_temp = ShipmentTemp::where('shipment_number', $input)->first();
 
+
         if($shipment_temp !== null && (int)$shipment_temp->status<4 ){
             $message = 'Uspesno promenjen status paketa'.$input;
             $shipment = new Shipment;
