@@ -63,7 +63,6 @@ class ShipmentController extends Controller
         $shipmentTemp = new ShipmentTemp;
         $random = random_int(000000000000,999999999999);
         $user = Auth::id();
-        var_dump($random);
 
         $shipment->shipment_number = $random;
         $shipment->status = 0;
@@ -77,11 +76,54 @@ class ShipmentController extends Controller
         $shipment->email =$request->email;
         $shipment->city = $request->city;
         $shipment->number = $request->number;
-        $shipment->shipment_price = $request->shipment_price;
-        $shipment->transport_price = $request->transport_price;
         $shipment->type = $request->type;
-        $shipment->shipment_price = $request->shipment_price;
-        $shipment->transport_price = 300;
+        $shipment->shipment_price=$request->shipment_price;
+
+
+
+        $nesto = $request->mass;
+
+        switch($nesto){
+            case 0.5:
+                $shipment->transport_price = "270 dinara";
+                $shipmentTemp->transport_price = "270 dinara";
+                break;
+            case 1:
+                $shipment->transport_price = "320 dinara";
+                $shipmentTemp->transport_price = "320 dinara";
+                break; 
+            case 2:
+                $shipment->transport_price = "390 dinara";
+                $shipmentTemp->transport_price = "390 dinara";
+                break; 
+            case 5:
+                $shipment->transport_price = "500 dinara";
+                $shipmentTemp->transport_price = "500 dinara";
+                break; 
+            case 10:
+                $shipment->transport_price = "650 dinara";
+                $shipmentTemp->transport_price = "650 dinara";
+                break; 
+            case 15:
+                $shipment->transport_price = "800 dinara";
+                $shipmentTemp->transport_price = "800 dinara";
+                break; 
+            case 20:
+                $shipment->transport_price = "920 dinara";
+                $shipmentTemp->transport_price = "920 dinara";
+                break; 
+            case 30:
+                $shipment->transport_price = "1100 dinara"; 
+                $shipmentTemp->transport_price = "1100 dinara"; 
+                break;
+            case 50:
+                $shipment->transport_price = "1500 dinara";
+                $shipmentTemp->transport_price = "1500 dinara";
+                break;  
+            }
+            
+
+        
         $shipment->save();
 
         $shipmentTemp->shipment_number = $random;
@@ -96,11 +138,8 @@ class ShipmentController extends Controller
         $shipmentTemp->email =$request->email;
         $shipmentTemp->city = $request->city;
         $shipmentTemp->number = $request->number;
-        $shipmentTemp->shipment_price = $request->shipment_price;
-        $shipmentTemp->transport_price = $request->transport_price;
         $shipmentTemp->type = $request->type;
-        $shipmentTemp->shipment_price = $request->shipment_price;
-        $shipmentTemp->transport_price = 300;
+        $shipmentTemp->shipment_price=$request->shipment_price;
         $shipmentTemp->save();
 
         $shipment->users()->attach($user);

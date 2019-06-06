@@ -139,7 +139,7 @@
 
 
                             </div>
-                            <span id="cena"></span>
+                            <span name="cena" id="cena"></span>
                             <div>
                             <div class="form-group row">
                                 <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Kategorija') }}</label>
