@@ -168,8 +168,7 @@ class UserController extends Controller
         $user->email=$email;
         $user->save();
 
-        return view('admin.users.index')->with('users',User::all());
-
+        return redirect('admin.users.index');
 
 
     }

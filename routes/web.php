@@ -32,6 +32,8 @@ Route::namespace('Admin')->prefix('admin')->middleware(['auth','auth.admin'])->n
     Route::resource('/vehicles','VehicleController');
     Route::resource('/postavke','PostavkeController');
     Route::get('/shipments','ShipmentController@index')->name('shipments.index');
+    Route::get('/shipments/{shipment}/edit','ShipmentController@edit')->name('shipments.edit');
+    Route::put('/shipments/{shipment}/update','ShipmentController@update')->name('shipments.update');
 
 });
 

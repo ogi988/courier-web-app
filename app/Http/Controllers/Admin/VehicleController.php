@@ -93,6 +93,6 @@ class VehicleController extends Controller
     public function destroy($id)
     {
         Vehicle::destroy($id);
-        return redirect()->route('admin.vehicle.index')->with('success','Vozilo je obrisano');
+        return redirect()->route('admin.vehicles.index')->with('success','Vozilo je obrisano');
     }
 }

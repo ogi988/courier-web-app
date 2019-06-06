@@ -75,6 +75,12 @@
                             </a>
                         </li>
                         <li class="nav-item ">
+                            <a class="nav-link" href="{{route('admin.shipments.index')}}">
+                                <i class="material-icons">dashboard</i>
+                                <p>Posiljke</p>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
                             <a class="nav-link" href="{{route('admin.vehicles.index')}}">
                                 <i class="material-icons">commute</i>
                                 <p>Vozila</p>
