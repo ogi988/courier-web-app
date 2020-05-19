@@ -4,4 +4,4 @@ Functionality:
 - Admin dashboard
 - Barcode scanner
 - Optimized route planner
-- Developers Ognjen Boskovic & Boris Vidojkovic
+<br><br>Developers Ognjen Boskovic & Boris Vidojkovic
