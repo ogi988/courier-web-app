@@ -1,5 +1,5 @@
 
-Fullstack courier web app with laravel and js
+Fullstack courier web app with laravel and js<br>
 Functionality:
 - Admin dashboard
 - Barcode scanner
